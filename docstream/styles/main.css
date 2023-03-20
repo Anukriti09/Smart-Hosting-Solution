@@ -1,0 +1,53 @@
+.editsContainer{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 70vh;
+    width: 80vw;
+    background-color: rgba(255, 255, 255, 0.845);
+    transform: translate(-50%, -50%);
+    z-index: 100000;
+    border: 2px solid rgba(0, 0, 0, 0.275);
+    border-radius: 10px;
+    overflow: auto;
+    /* color: white; */
+}
+
+.indiEditContainer{
+    position: relative;
+    padding: 20px;
+    border: 2px solid black;
+    /* background-color: rgb(35, 35, 35); */
+}
+
+.indiEditContainer > h2{
+    font-size: 1.4rem;
+}
+
+.indiEditContainer .quill{
+    border: none;
+}
+
+.indiEdit{
+    position: relative;
+    display: grid;
+    grid-template-columns: 45% 5% 45%;
+    align-items: center;
+}
+
+.indiEdit > p{
+    justify-self: center;
+}
+
+.editsContainer > div > div{
+    position: relative;
+    padding: 40px;
+}
+
+#QuillEditor{
+    background: url('../pages/BGGREYGREEN.svg') center center;
+}
+
+.header>button{
+    background-color: green;
+}
