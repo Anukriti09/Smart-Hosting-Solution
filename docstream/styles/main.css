@@ -44,35 +44,68 @@
     padding: 40px;
 }
 
-.header>button{
-    background-color: green;
-}
 
 .container{
     position: relative;
     display: grid;
     min-height: 100vh;
     width: 100vw;
-    grid-template-rows: 12% 8% auto;
+    grid-template-rows: 7% 4% auto;
 }
 
 #toolbar{
-    background-color: violet;
+    background-color: #F1F5F9;
     color: black;
     width: 100vw;
     z-index: 10;
 }
 
 header{
-    background-color: thistle;
+    background-color: #F1F5F9;
     color: black;
     width: 100vw;
     height: inherit;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    align-items: center;
+    justify-items: center;
 }
 
 .editorContainer{
-    padding: 150px 0;
+    padding: 110px 0;
     background: url('../pages/BGGREYGREEN.svg') center center;
 
+}
+
+.button {
+    position: relative;
+    padding: 10px 40px;
+    border-radius: 20px;
+    background-color: #F1F5F9;
+    box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF;
+    cursor: pointer;
+    animation-duration: 0.05s;
+    outline: none;
+    border: none;
+    transition: all 0.5s ease;
+}
+
+.button:hover {
+    animation-name: shadow;
+    animation-timing-function: ease;
+    box-shadow: inset 4px 4px 8px #c9d9e88b, inset -4px -4px 8px #ffffff;
+}
+
+@keyframes shadow {
+    0% {
+        box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF;
+    }
+
+    50% {
+        box-shadow: 0px 0px 0px #C9D9E8, 0px 0px 0px #FFFFFF;
+    }
+
+    100% {
+        box-shadow: inset 4px 4px 8px #c9d9e88b, inset -4px -4px 8px #ffffff;
+    }
 }
