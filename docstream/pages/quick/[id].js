@@ -164,41 +164,19 @@ function Example() {
         <span onClick={() => router.push("/")} className="cursor-pointer">
           <Icon name="description" size="5xl" color="green" />
         </span>
-        <div className="flex-grow px-2">
+        <div>
           <h2>{documentId}</h2>
         </div>
-        <Button
-          color="lightBlue"
-          buttonType="filled"
-          size="regular"
-          rounded={false}
-          block={false}
-          iconOnly={false}
-          ripple="light"
-          onClick={() => {
-            showEdits ? setShowEdits(false) : fetchEdits()
-          }}
-        >{showEdits ? "Hide Edits" : "Show Edits"}</Button>
-        {/* <Button
-          color="pink"
-          buttonType="filled"
-          size="regular"
-          rounded={false}
-          block={false}
-          iconOnly={false}
-          ripple="light"
-          onClick={() => {
-            // print_pdf();
-            window.print();
-          }}
-        >
-          Export as PDF */}
-        {/* </Button> */}
-        <button>Export as PDF</button>
+        <button onClick={() => { showEdits ? setShowEdits(false) : fetchEdits()}}>
+          {showEdits ? "Hide Edits" : "Show Edits"}
+        </button>
+        
+        <button onClick={() => { window.print();}}>
+          Export as PDF
+        </button>
         <DownloadHelloSign text="Previous Sig requests" />
         <HelloSign text="Digital sign button" />
         <ShareModal text="share" />
-        <br />
       </header>
 
 
@@ -207,23 +185,23 @@ function Example() {
       <div id="toolbar">
         <select class="ql-size">
           <option value="small"></option>
-          
+
           <option selected></option>
           <option value="large"></option>
           <option value="huge"></option>
         </select>
-        
+
         <button class="ql-bold"><p>BOLD</p></button>
-        
+
         <button class="ql-script" value="sub"></button>
         <button class="ql-script" value="super"></button>
         <button class="ql-italic">Italic</button>
       </div>
 
-      <div className={`mx-auto ${false ? 'blur-lg' : ''}`} id="container" >
-        <div id="QuillEditor"/>
+      <div className="editorContainer" >
+        <div id="QuillEditor" className="" />
       </div>
-      <div className="dummy" style={{ display: "none" }}></div>
+      <div className="dummy" style={{ display: "none"}}></div>
 
     </div>
   );

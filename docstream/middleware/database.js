@@ -7,7 +7,7 @@ const db = (handler) => async (req, res) => {
   }
   // Use new db connection
   // Must add a connection url for the MongoDB in .env.local
-  await mongoose.connect(process.env.MONGODB_URI, {
+  await mongoose.connect("mongodb://0.0.0.0:27017/google-docs-clone", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   });

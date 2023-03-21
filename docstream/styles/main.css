@@ -44,37 +44,35 @@
     padding: 40px;
 }
 
-#QuillEditor{
-    background: url('../pages/BGGREYGREEN.svg') center center;
-}
-
 .header>button{
     background-color: green;
 }
+
+.container{
+    position: relative;
+    display: grid;
+    min-height: 100vh;
+    width: 100vw;
+    grid-template-rows: 12% 8% auto;
+}
+
 #toolbar{
     background-color: violet;
     color: black;
     width: 100vw;
-    height: 8%;
     z-index: 10;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-}
-#QuillEditor{
-    background-color: thistle;
-    color: black;
-    width: 100vw;
-    height: inherit;
-}
 header{
     background-color: thistle;
     color: black;
     width: 100vw;
     height: inherit;
     display: flex;
+}
+
+.editorContainer{
+    padding: 150px 0;
+    background: url('../pages/BGGREYGREEN.svg') center center;
+
 }
