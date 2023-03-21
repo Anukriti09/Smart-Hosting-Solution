@@ -115,7 +115,7 @@ function Example() {
       socket.emit("send-changes", delta)
       QuillChanges.push(delta)
       numberOfQuillChanges += 1
-      if(numberOfQuillChanges != 0 && numberOfQuillChanges > 10){
+      if (numberOfQuillChanges != 0 && numberOfQuillChanges > 10) {
         numberOfQuillChanges = 0
         socket.emit('edited-document', {
           sender: 'Anonymouse',
@@ -146,22 +146,21 @@ function Example() {
     const Quill = (await import("quill")).default;
     const q = new Quill(document.querySelector('#QuillEditor'), {
       modules: {
-        toolbar: TOOLBAR_OPTIONS
+        toolbar: '#toolbar'
       },
       theme: "snow",
     });
-    deltaQuill= new Quill(".dummy");
+    deltaQuill = new Quill(".dummy");
     q.disable()
     q.setText("Loading...")
     setQuill(q);
   }, []);
 
- 
+
 
   return (
-    <>
-    <div className="dummy" style={{display: "none"}}></div>
-      <header className={`flex justify-between items-center p-4 z-50 bg-white header ${false ? 'blur-lg' : ''}`} p-3 pb-1="true">
+    <div className="container">
+      <header className="header">
         <span onClick={() => router.push("/")} className="cursor-pointer">
           <Icon name="description" size="5xl" color="green" />
         </span>
@@ -179,10 +178,9 @@ function Example() {
           onClick={() => {
             showEdits ? setShowEdits(false) : fetchEdits()
           }}
-          className="mx-12"
         >{showEdits ? "Hide Edits" : "Show Edits"}</Button>
-        <Button
-          color="lightBlue"
+        {/* <Button
+          color="pink"
           buttonType="filled"
           size="regular"
           rounded={false}
@@ -193,10 +191,10 @@ function Example() {
             // print_pdf();
             window.print();
           }}
-          className="mx-12"
         >
-          Export as PDF
-        </Button>
+          Export as PDF */}
+        {/* </Button> */}
+        <button>Export as PDF</button>
         <DownloadHelloSign text="Previous Sig requests" />
         <HelloSign text="Digital sign button" />
         <ShareModal text="share" />
@@ -204,12 +202,30 @@ function Example() {
       </header>
 
 
-      {showEdits && <Edits updates = {updatesData}></Edits>}
-      <div className={`mx-auto ${false ? 'blur-lg' : ''}`} id="container" >
-        <div id="QuillEditor" className="bg-gray-100" />
-        {/* <img src={background.src} className='background'/> */}
+      {showEdits && <Edits updates={updatesData}></Edits>}
+
+      <div id="toolbar">
+        <select class="ql-size">
+          <option value="small"></option>
+          
+          <option selected></option>
+          <option value="large"></option>
+          <option value="huge"></option>
+        </select>
+        
+        <button class="ql-bold"><p>BOLD</p></button>
+        
+        <button class="ql-script" value="sub"></button>
+        <button class="ql-script" value="super"></button>
+        <button class="ql-italic">Italic</button>
       </div>
-    </>
+
+      <div className={`mx-auto ${false ? 'blur-lg' : ''}`} id="container" >
+        <div id="QuillEditor"/>
+      </div>
+      <div className="dummy" style={{ display: "none" }}></div>
+
+    </div>
   );
 }
 

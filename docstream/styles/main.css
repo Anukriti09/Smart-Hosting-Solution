@@ -51,3 +51,30 @@
 .header>button{
     background-color: green;
 }
+#toolbar{
+    background-color: violet;
+    color: black;
+    width: 100vw;
+    height: 8%;
+    z-index: 10;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+#QuillEditor{
+    background-color: thistle;
+    color: black;
+    width: 100vw;
+    height: inherit;
+}
+header{
+    background-color: thistle;
+    color: black;
+    width: 100vw;
+    height: inherit;
+    display: flex;
+}
