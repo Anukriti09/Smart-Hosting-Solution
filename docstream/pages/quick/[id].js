@@ -159,7 +159,7 @@ function Example() {
 
 
   return (
-    <div className="container">
+    <div className="mainContainer">
       <header className="header">
         <div>
           <svg onClick={() => router.push("/")} className="main-logo" width="65" height="67" viewBox="0 0 65 67" fill="none" xmlns="http://www.w3.org/2000/svg">

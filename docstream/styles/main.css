@@ -45,20 +45,20 @@
 }
 
 
-.container{
+.mainContainer{
     position: relative;
     display: grid;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     grid-template-rows: 7% 4% auto;
+    max-width: 100vw;
 }
 
 #toolbar{
     background-color: #F1F5F9;
     color: black;
-    width: 100vw;
+    width: 100%;
     position: relative;
-    border: red 2px solid;
 }
 
 header{
@@ -71,7 +71,6 @@ header{
     align-items: center;
     justify-items: left;
     padding: 10px 50px;
-    border: blue 2px solid;
 
 }
 
