@@ -22,6 +22,8 @@ import DownloadHelloSign from "../../components/modal/DownloadHelloSign";
 import Edits from "../../models/Edits";
 import background from '../Background.svg';
 
+import bold from 'quill/assets/icons/bold.svg'
+
 const SAVE_INTERVAL_MS = 2000;
 const TOOLBAR_OPTIONS = [
   [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -143,7 +145,29 @@ function Example() {
 
   useEffect(async () => {
     if (document.querySelector("#QuillEditor").innerHTML != "") return
+    
     const Quill = (await import("quill")).default;
+    let icons = Quill.import("ui/icons");
+    console.log(bold)
+    icons["bold"] = `
+    <svg width="11" height="11" viewBox="0 0 9 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0.900002 11V0.5H4.6275C5.1675 0.5 5.655 0.61 6.09 0.83C6.53 1.05 6.8775 1.3675 7.1325 1.7825C7.3925 2.1925 7.5225 2.685 7.5225 3.26C7.5225 3.54 7.4775 3.815 7.3875 4.085C7.2975 4.355 7.17 4.5925 7.005 4.7975C6.84 5.0025 6.64 5.1475 6.405 5.2325C6.725 5.3125 6.99 5.4575 7.2 5.6675C7.415 5.8725 7.585 6.1125 7.71 6.3875C7.835 6.6625 7.9225 6.9475 7.9725 7.2425C8.0275 7.5375 8.055 7.8175 8.055 8.0825C8.055 8.6425 7.92 9.1425 7.65 9.5825C7.38 10.0225 7.0175 10.37 6.5625 10.625C6.1125 10.875 5.615 11 5.07 11H0.900002ZM2.46 9.65H4.92C5.24 9.65 5.53 9.57 5.79 9.41C6.055 9.25 6.265 9.03 6.42 8.75C6.575 8.465 6.6525 8.145 6.6525 7.79C6.6525 7.48 6.575 7.1875 6.42 6.9125C6.265 6.6325 6.055 6.4075 5.79 6.2375C5.53 6.0675 5.24 5.9825 4.92 5.9825H2.46V9.65ZM2.46 4.655H4.4625C4.8725 4.655 5.225 4.53 5.52 4.28C5.815 4.03 5.9625 3.6875 5.9625 3.2525C5.9625 2.7875 5.815 2.44 5.52 2.21C5.225 1.975 4.8725 1.8575 4.4625 1.8575H2.46V4.655Z" fill="#4CAF50"/>
+    </svg>   
+    `
+    icons["italic"] = `
+    <svg width="11" height="11" viewBox="0 0 4 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.389999 11L1.86 0.5H3.42L1.95 11H0.389999Z" fill="#4CAF50"/>
+    </svg>
+
+    `
+    icons["script"]["super"] = `
+    <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.450012 12L4.29751 6.71999L0.495012 1.49999H2.42251L5.25751 5.39999L8.10001 1.49999H10.0275L6.23251 6.71999L10.0725 12H8.13751L5.25751 8.05499L2.39251 12H0.450012Z" fill="#4CAF50"/>
+      <path d="M11.2376 5.86499V4.97999C11.4426 4.83999 11.6701 4.68499 11.9201 4.51499C12.1751 4.34499 12.4251 4.16249 12.6701 3.96749C12.9151 3.77249 13.1326 3.56499 13.3226 3.34499C13.5176 3.12499 13.6576 2.89499 13.7426 2.65499C13.7426 2.44499 13.6701 2.26999 13.5251 2.12999C13.3801 1.98999 13.2026 1.91999 12.9926 1.91999C12.7826 1.91999 12.6001 1.98999 12.4451 2.12999C12.2951 2.26999 12.2201 2.44499 12.2201 2.65499H11.2376C11.2376 2.33499 11.3151 2.04999 11.4701 1.79999C11.6301 1.54499 11.8426 1.34749 12.1076 1.20749C12.3776 1.06249 12.6726 0.98999 12.9926 0.98999C13.4726 0.98999 13.8801 1.14749 14.2151 1.46249C14.5551 1.77749 14.7251 2.17499 14.7251 2.65499C14.7251 2.85999 14.6726 3.06499 14.5676 3.26999C14.4626 3.46999 14.3251 3.66499 14.1551 3.85499C13.9851 4.04499 13.7976 4.22749 13.5926 4.40249C13.3926 4.57249 13.1976 4.73249 13.0076 4.88249H14.6726V5.86499H11.2376Z" fill="#4CAF50"/>
+    </svg>
+
+    `
+    console.log(icons)
     const q = new Quill(document.querySelector('#QuillEditor'), {
       modules: {
         toolbar: '#toolbar'
@@ -154,6 +178,7 @@ function Example() {
     q.disable()
     q.setText("Loading...")
     setQuill(q);
+    
   }, []);
 
 
@@ -204,19 +229,9 @@ function Example() {
       {showEdits && <Edits updates={updatesData}></Edits>}
 
       <div id="toolbar">
-        <select class="ql-size">
-          <option value="small"></option>
-
-          <option selected></option>
-          <option value="large"></option>
-          <option value="huge"></option>
-        </select>
-
-        <button class="ql-bold"><p>BOLD</p></button>
-
-        <button class="ql-script" value="sub"></button>
-        <button class="ql-script" value="super"></button>
-        <button class="ql-italic">Italic</button>
+        <button className="ql-bold toolbarBtn"></button>
+        <button className="ql-italic toolbarBtn"></button>
+        <button className="ql-script toolbarBtn" value="super"></button>
       </div>
 
       <div className="editorContainer" >

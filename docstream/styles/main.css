@@ -59,6 +59,9 @@
     color: black;
     width: 100%;
     position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 header{
@@ -94,6 +97,39 @@ header>div:nth-of-type(2){
     background: url('../pages/BGGREYGREEN.svg') center center;
 
 }
+
+.toolbarBtn{
+    position: relative;
+    border-radius: 100%;
+    background-color: #F1F5F9;
+    box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF;
+    cursor: pointer;
+    animation-duration: 0.05s;
+    outline: none;
+    border: none;
+    transition: all 0.5s ease;
+    display: grid !important;
+    grid-template-columns: 100% !important;
+    align-items: center !important;
+    justify-items: center !important;
+    padding: 0px !important;
+    float: none!important;
+    height: 35px !important;
+    width: 35px !important;
+}
+
+.toolbarBtn > svg{
+    float: none!important;
+    height: auto!important;
+}
+
+.toolbarBtn:hover {
+    animation-name: shadow;
+    animation-timing-function: ease;
+    box-shadow: inset 4px 4px 8px #c9d9e88b, inset -4px -4px 8px #ffffff;
+}
+
+
 
 .button {
     position: relative;
