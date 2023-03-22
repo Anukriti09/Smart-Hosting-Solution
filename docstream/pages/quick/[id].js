@@ -194,7 +194,7 @@ function Example() {
               <path d="M8.299 15.1566V11.6409H10.0921V12.2536H8.82804V12.9668H9.88394V13.5795H8.82804V15.1566H8.299Z" fill="#4CAF50" />
             </svg>
           </div>
-          
+
           <DownloadHelloSign text="Previous Sig requests" />
           <HelloSign text="Digital sign button" />
           <ShareModal text="share" />
@@ -206,17 +206,32 @@ function Example() {
       <div id="toolbar">
         <select class="ql-size">
           <option value="small"></option>
-
           <option selected></option>
           <option value="large"></option>
           <option value="huge"></option>
         </select>
 
+        <button class="ql-heading">H1</button>
+        <button class="ql-heading">H2</button>
+
+        <select class="ql-font">
+          <option selected></option>
+          <option value="Sans Serif"></option>
+          <option value="Times New Roman"></option>
+          <option value="Courier Sans"></option>
+          <option value="Courier Sans"></option>
+        </select>
+
+        <button class="ql-list" value="ordered"></button>
+        <button class="ql-list" value="bullet"></button>
+
+
         <button class="ql-bold"><p>BOLD</p></button>
+        <button class="ql-italic"><div>Italic</div></button>
 
         <button class="ql-script" value="sub"></button>
         <button class="ql-script" value="super"></button>
-        <button class="ql-italic">Italic</button>
+
       </div>
 
       <div className="editorContainer" >
