@@ -219,7 +219,7 @@ function Example() {
               <path d="M8.299 15.1566V11.6409H10.0921V12.2536H8.82804V12.9668H9.88394V13.5795H8.82804V15.1566H8.299Z" fill="#4CAF50" />
             </svg>
           </div>
-          
+
           <DownloadHelloSign text="Previous Sig requests" />
           <HelloSign text="Digital sign button" />
           <ShareModal text="share" />
