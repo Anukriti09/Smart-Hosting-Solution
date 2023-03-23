@@ -145,28 +145,147 @@ function Example() {
 
   useEffect(async () => {
     if (document.querySelector("#QuillEditor").innerHTML != "") return
-    
+
     const Quill = (await import("quill")).default;
     let icons = Quill.import("ui/icons");
     console.log(bold)
+
     icons["bold"] = `
     <svg width="11" height="11" viewBox="0 0 9 11" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M0.900002 11V0.5H4.6275C5.1675 0.5 5.655 0.61 6.09 0.83C6.53 1.05 6.8775 1.3675 7.1325 1.7825C7.3925 2.1925 7.5225 2.685 7.5225 3.26C7.5225 3.54 7.4775 3.815 7.3875 4.085C7.2975 4.355 7.17 4.5925 7.005 4.7975C6.84 5.0025 6.64 5.1475 6.405 5.2325C6.725 5.3125 6.99 5.4575 7.2 5.6675C7.415 5.8725 7.585 6.1125 7.71 6.3875C7.835 6.6625 7.9225 6.9475 7.9725 7.2425C8.0275 7.5375 8.055 7.8175 8.055 8.0825C8.055 8.6425 7.92 9.1425 7.65 9.5825C7.38 10.0225 7.0175 10.37 6.5625 10.625C6.1125 10.875 5.615 11 5.07 11H0.900002ZM2.46 9.65H4.92C5.24 9.65 5.53 9.57 5.79 9.41C6.055 9.25 6.265 9.03 6.42 8.75C6.575 8.465 6.6525 8.145 6.6525 7.79C6.6525 7.48 6.575 7.1875 6.42 6.9125C6.265 6.6325 6.055 6.4075 5.79 6.2375C5.53 6.0675 5.24 5.9825 4.92 5.9825H2.46V9.65ZM2.46 4.655H4.4625C4.8725 4.655 5.225 4.53 5.52 4.28C5.815 4.03 5.9625 3.6875 5.9625 3.2525C5.9625 2.7875 5.815 2.44 5.52 2.21C5.225 1.975 4.8725 1.8575 4.4625 1.8575H2.46V4.655Z" fill="#4CAF50"/>
-    </svg>   
-    `
+    </svg>`
+
     icons["italic"] = `
     <svg width="11" height="11" viewBox="0 0 4 11" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0.389999 11L1.86 0.5H3.42L1.95 11H0.389999Z" fill="#4CAF50"/>
-    </svg>
+    </svg>`
 
-    `
+    
+    icons["underline"] = `
+    <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5.1075 11.195C4.2675 11.195 3.53 10.99 2.895 10.58C2.265 10.17 1.775 9.62 1.425 8.93C1.075 8.235 0.9 7.465 0.9 6.62V0.5H2.73V6.62C2.73 7.12 2.8225 7.58 3.0075 8C3.1975 8.415 3.4675 8.7475 3.8175 8.9975C4.1725 9.2425 4.6025 9.365 5.1075 9.365C5.6175 9.365 6.0475 9.2425 6.3975 8.9975C6.7475 8.7475 7.0125 8.415 7.1925 8C7.3775 7.58 7.47 7.12 7.47 6.62V0.5H9.3V6.62C9.3 7.255 9.2 7.85 9 8.405C8.8 8.955 8.515 9.44 8.145 9.86C7.775 10.28 7.3325 10.6075 6.8175 10.8425C6.3075 11.0775 5.7375 11.195 5.1075 11.195Z" fill="#4CAF50"/>
+    <path d="M0 11.9375H10.2V12.3125H0V11.9375Z" fill="#4CAF50"/>
+    </svg>`
+    
+    icons["strike"] = `
+    <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.6425 11.195C4.0675 11.195 3.515 11.105 2.985 10.925C2.455 10.745 1.9925 10.4875 1.5975 10.1525C1.2025 9.81252 0.92 9.41001 0.75 8.94501L2.2125 8.39752C2.2975 8.63752 2.46 8.85251 2.7 9.04251C2.945 9.22751 3.235 9.37252 3.57 9.47752C3.91 9.58252 4.2675 9.63502 4.6425 9.63502C5.0425 9.63502 5.4175 9.57001 5.7675 9.44001C6.1225 9.31001 6.4075 9.13001 6.6225 8.90001C6.8425 8.67001 6.9525 8.40002 6.9525 8.09002C6.9525 7.77002 6.8375 7.50752 6.6075 7.30252C6.3825 7.09751 6.0925 6.93501 5.7375 6.81501C5.3875 6.69501 5.0225 6.60502 4.6425 6.54502C3.9075 6.42502 3.2475 6.25001 2.6625 6.02001C2.0825 5.79001 1.6225 5.46752 1.2825 5.05252C0.9475 4.63752 0.78 4.09751 0.78 3.43251C0.78 2.80751 0.9575 2.26251 1.3125 1.79751C1.6725 1.33251 2.145 0.972515 2.73 0.717515C3.32 0.457515 3.9575 0.327515 4.6425 0.327515C5.2075 0.327515 5.7525 0.417515 6.2775 0.597515C6.8075 0.772514 7.2725 1.03001 7.6725 1.37002C8.0775 1.70502 8.3675 2.11252 8.5425 2.59251L7.065 3.12501C6.98 2.88001 6.8175 2.66751 6.5775 2.48751C6.3375 2.30251 6.0475 2.15751 5.7075 2.05251C5.3725 1.94751 5.0175 1.89501 4.6425 1.89501C4.2425 1.89001 3.8675 1.95501 3.5175 2.09001C3.1725 2.22001 2.89 2.40001 2.67 2.63001C2.45 2.86001 2.34 3.12751 2.34 3.43251C2.34 3.80751 2.4425 4.09252 2.6475 4.28752C2.8525 4.48252 3.1275 4.62751 3.4725 4.72252C3.8225 4.81251 4.2125 4.89501 4.6425 4.97002C5.3325 5.08001 5.97 5.26251 6.555 5.51752C7.145 5.77252 7.6175 6.11251 7.9725 6.53751C8.3325 6.95751 8.5125 7.47502 8.5125 8.09002C8.5125 8.71002 8.3325 9.25502 7.9725 9.72502C7.6175 10.19 7.145 10.5525 6.555 10.8125C5.97 11.0675 5.3325 11.195 4.6425 11.195Z" fill="#4CAF50"/>
+    <path d="M0 6.50002H9.2925V6.87502H0V6.50002Z" fill="#4CAF50"/>
+    </svg>`
+
     icons["script"]["super"] = `
     <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0.450012 12L4.29751 6.71999L0.495012 1.49999H2.42251L5.25751 5.39999L8.10001 1.49999H10.0275L6.23251 6.71999L10.0725 12H8.13751L5.25751 8.05499L2.39251 12H0.450012Z" fill="#4CAF50"/>
       <path d="M11.2376 5.86499V4.97999C11.4426 4.83999 11.6701 4.68499 11.9201 4.51499C12.1751 4.34499 12.4251 4.16249 12.6701 3.96749C12.9151 3.77249 13.1326 3.56499 13.3226 3.34499C13.5176 3.12499 13.6576 2.89499 13.7426 2.65499C13.7426 2.44499 13.6701 2.26999 13.5251 2.12999C13.3801 1.98999 13.2026 1.91999 12.9926 1.91999C12.7826 1.91999 12.6001 1.98999 12.4451 2.12999C12.2951 2.26999 12.2201 2.44499 12.2201 2.65499H11.2376C11.2376 2.33499 11.3151 2.04999 11.4701 1.79999C11.6301 1.54499 11.8426 1.34749 12.1076 1.20749C12.3776 1.06249 12.6726 0.98999 12.9926 0.98999C13.4726 0.98999 13.8801 1.14749 14.2151 1.46249C14.5551 1.77749 14.7251 2.17499 14.7251 2.65499C14.7251 2.85999 14.6726 3.06499 14.5676 3.26999C14.4626 3.46999 14.3251 3.66499 14.1551 3.85499C13.9851 4.04499 13.7976 4.22749 13.5926 4.40249C13.3926 4.57249 13.1976 4.73249 13.0076 4.88249H14.6726V5.86499H11.2376Z" fill="#4CAF50"/>
-    </svg>
+    </svg>`
 
+    icons["script"]["sub"] = `
+    <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0.450012 11L4.29751 5.72L0.495012 0.5H2.42251L5.25751 4.4L8.10001 0.5H10.0275L6.23251 5.72L10.0725 11H8.13751L5.25751 7.055L2.39251 11H0.450012Z" fill="#4CAF50"/>
+    <path d="M11.2376 11V10.115C11.4426 9.975 11.6701 9.82 11.9201 9.65C12.1751 9.48 12.4251 9.2975 12.6701 9.1025C12.9151 8.9025 13.1326 8.6925 13.3226 8.4725C13.5176 8.2525 13.6576 8.0225 13.7426 7.7825C13.7426 7.5725 13.6701 7.4 13.5251 7.265C13.3801 7.125 13.2026 7.055 12.9926 7.055C12.7826 7.055 12.6001 7.125 12.4451 7.265C12.2951 7.4 12.2201 7.5725 12.2201 7.7825H11.2376C11.2376 7.4625 11.3151 7.1725 11.4701 6.9125C11.6301 6.6525 11.8426 6.4475 12.1076 6.2975C12.3776 6.1475 12.6726 6.0725 12.9926 6.0725C13.3126 6.0725 13.6026 6.1475 13.8626 6.2975C14.1276 6.4475 14.3376 6.6525 14.4926 6.9125C14.6476 7.1725 14.7251 7.4625 14.7251 7.7825C14.7251 7.9875 14.6726 8.1925 14.5676 8.3975C14.4626 8.5975 14.3251 8.7925 14.1551 8.9825C13.9851 9.1725 13.7976 9.355 13.5926 9.53C13.3926 9.705 13.1976 9.8675 13.0076 10.0175H14.6726V11H11.2376Z" fill="#4CAF50"/>
+    </svg>`
+
+    // icons["align"]= `
+    // <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    // <path d="M8 8H0V9.33333H8V8ZM8 2.66667H0V4H8V2.66667ZM0 6.66667H12V5.33333H0V6.66667ZM0 12H12V10.6667H0V12ZM0 0V1.33333H12V0H0Z" fill="#4CAF50"/>
+    // </svg>`
+
+    // icons["align"]["center"] = `
+    // <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    // <path d="M2.66667 8V9.33333H9.33333V8H2.66667ZM0 12H12V10.6667H0V12ZM0 6.66667H12V5.33333H0V6.66667ZM2.66667 2.66667V4H9.33333V2.66667H2.66667ZM0 0V1.33333H12V0H0Z" fill="#4CAF50"/>
+    // </svg>`
+    
+    // icons["align"]["right"] = `
+    // <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    // <path d="M0 12H12V10.6667H0V12ZM4 9.33333H12V8H4V9.33333ZM0 6.66667H12V5.33333H0V6.66667ZM4 4H12V2.66667H4V4ZM0 0V1.33333H12V0H0Z" fill="#4CAF50"/>
+    // </svg>`
+
+    // icons["align"]["justify"] = `
+    // <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    // <path d="M0 12H12V10.6667H0V12ZM0 9.33333H12V8H0V9.33333ZM0 6.66667H12V5.33333H0V6.66667ZM0 4H12V2.66667H0V4ZM0 0V1.33333H12V0H0Z" fill="#4CAF50"/>
+    // </svg>`
+
+    icons["color"] = `
+    <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 12.1333V14H12V12.1333H0ZM3.85714 8.21333H8.14286L8.91429 10.2667H10.7143L6.64286 0H5.35714L1.28571 10.2667H3.08571L3.85714 8.21333ZM6 1.848L7.60286 6.53333H4.39714L6 1.848Z" fill="#4CAF50"/>
+    </svg>`
+
+    icons["background"] = `
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 2C0 0.89543 0.895431 0 2 0H16C17.1046 0 18 0.895431 18 2V16C18 17.1046 17.1046 18 16 18H2C0.89543 18 0 17.1046 0 16V2Z" fill="#4CAF50" fill-opacity="0.6"/>
+    <path d="M8.41751 3.5H10.24L14.0575 14H12.4075L11.68 12.005H6.97751L6.25751 14H4.60001L8.41751 3.5ZM7.55501 10.445H11.1025L9.32501 5.57L7.55501 10.445Z" fill="#4CAF50"/>
+    </svg>`
+
+    icons["header"]["1"] = `
+    <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.20749 0.5H8.76749V11H7.20749V6.155H2.45999V11H0.899994V0.5H2.45999V4.595H7.20749V0.5Z" fill="#4CAF50"/>
+    <path d="M11.5205 11V2.06H10.268L10.6955 0.5H13.0805V11H11.5205Z" fill="#4CAF50"/>
+    </svg>`
+
+    icons["header"]["2"] = `
+    <svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.20749 0.499993H8.76749V11H7.20749V6.15499H2.45999V11H0.899994V0.499993H2.45999V4.59499H7.20749V0.499993Z" fill="#4CAF50"/>
+    <path d="M10.268 11V9.61249C10.623 9.31749 11.0305 8.97499 11.4905 8.58499C11.9505 8.18999 12.418 7.77249 12.893 7.33249C13.368 6.88749 13.8055 6.44499 14.2055 6.00499C14.6055 5.55999 14.928 5.13999 15.173 4.74499C15.423 4.34499 15.548 3.99749 15.548 3.70249C15.548 3.36749 15.4655 3.06249 15.3005 2.78749C15.1405 2.50749 14.923 2.28499 14.648 2.11999C14.373 1.94999 14.068 1.86499 13.733 1.86499C13.398 1.86499 13.0905 1.94999 12.8105 2.11999C12.5355 2.28499 12.313 2.50749 12.143 2.78749C11.978 3.06249 11.8955 3.36749 11.8955 3.70249H10.3355C10.3355 3.06749 10.4905 2.49499 10.8005 1.98499C11.1155 1.46999 11.528 1.06249 12.038 0.762493C12.553 0.457493 13.118 0.304993 13.733 0.304993C14.353 0.304993 14.918 0.457493 15.428 0.762493C15.938 1.06749 16.3455 1.47749 16.6505 1.99249C16.9555 2.50249 17.108 3.07249 17.108 3.70249C17.108 4.05249 17.0355 4.41249 16.8905 4.78249C16.7455 5.15249 16.543 5.52999 16.283 5.91499C16.028 6.29999 15.7305 6.68999 15.3905 7.08499C15.0505 7.47999 14.6855 7.87499 14.2955 8.26999C13.9055 8.66499 13.508 9.05499 13.103 9.43999H17.198V11H10.268Z" fill="#4CAF50"/>
+    </svg>
     `
+
+    icons["list"]["ordered"] = `
+    <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 11.375H1.78947V11.8125H0.894737V12.6875H1.78947V13.125H0V14H2.68421V10.5H0V11.375ZM0.894737 3.5H1.78947V0H0V0.875H0.894737V3.5ZM0 6.125H1.61053L0 7.9625V8.75H2.68421V7.875H1.07368L2.68421 6.0375V5.25H0V6.125ZM4.47368 0.875V2.625H17V0.875H4.47368ZM4.47368 13.125H17V11.375H4.47368V13.125ZM4.47368 7.875H17V6.125H4.47368V7.875Z" fill="#4CAF50"/>
+    </svg>`
+
+    icons["list"]["bullet"] = `
+    <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1.2973 5.2C0.579459 5.2 0 5.78067 0 6.5C0 7.21933 0.579459 7.8 1.2973 7.8C2.01514 7.8 2.59459 7.21933 2.59459 6.5C2.59459 5.78067 2.01514 5.2 1.2973 5.2ZM1.2973 0C0.579459 0 0 0.580667 0 1.3C0 2.01933 0.579459 2.6 1.2973 2.6C2.01514 2.6 2.59459 2.01933 2.59459 1.3C2.59459 0.580667 2.01514 0 1.2973 0ZM1.2973 10.4C0.579459 10.4 0 10.9893 0 11.7C0 12.4107 0.588108 13 1.2973 13C2.00649 13 2.59459 12.4107 2.59459 11.7C2.59459 10.9893 2.01514 10.4 1.2973 10.4ZM3.89189 12.5667H16V10.8333H3.89189V12.5667ZM3.89189 7.36667H16V5.63333H3.89189V7.36667ZM3.89189 0.433333V2.16667H16V0.433333H3.89189Z" fill="#4CAF50"/>
+    </svg>`
+    
+    icons["indent"]["+1"] = `
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 14H14V12.4444H0V14ZM0 3.88889V10.1111L3.11111 7L0 3.88889ZM6.22222 10.8889H14V9.33333H6.22222V10.8889ZM0 0V1.55556H14V0H0ZM6.22222 4.66667H14V3.11111H6.22222V4.66667ZM6.22222 7.77778H14V6.22222H6.22222V7.77778Z" fill="#4CAF50"/>
+    </svg>`
+
+    icons["indent"]["-1"] = `
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6.22222 10.8889H14V9.33333H6.22222V10.8889ZM0 7L3.11111 10.1111V3.88889L0 7ZM0 14H14V12.4444H0V14ZM0 0V1.55556H14V0H0ZM6.22222 4.66667H14V3.11111H6.22222V4.66667ZM6.22222 7.77778H14V6.22222H6.22222V7.77778Z" fill="#4CAF50"/>
+    </svg>`
+
+    
+    icons["direction"]["rtl"] = `
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.5 1.00107H14H15.5C15.5 1.00107 14.8775 1.00373 14 1.00378C13.5504 1.0038 13.0339 1.00313 12.5 1.00107V6.50107C12.5 6.50107 9.07891 6.88828 8 5.5011C6.92109 4.11392 7.5 2.00112 8.5 1.50109C9.5 1.00107 10.8408 0.994658 12.5 1.00107Z" fill="#4CAF50"/>
+    <path d="M1 9.50107V3.00107L5 6.00107L1 9.50107Z" fill="#4CAF50"/>
+    <path d="M12.5 12.0011V6.50107M12.5 1.00107H14M12.5 1.00107V6.50107M12.5 1.00107C14.0761 1.00716 15.5 1.00107 15.5 1.00107H14M12.5 1.00107C10.8408 0.994658 9.5 1.00107 8.5 1.50109C7.5 2.00112 6.92109 4.11392 8 5.5011C9.07891 6.88828 12.5 6.50107 12.5 6.50107M14 1.00107V12.0011M1 3.00107V9.50107L5 6.00107L1 3.00107Z" stroke="#4CAF50"/>
+    </svg>`
+
+    icons["blockquote"]=`
+    <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13.0167 10H10L11.6667 6.66667H10.3333C9.22876 6.66667 8.33333 5.77124 8.33333 4.66667V2C8.33333 0.895429 9.22876 0 10.3333 0H13C14.1046 0 15 0.895431 15 2V5.5612C15 5.87169 14.9277 6.17791 14.7889 6.45562L13.0167 10ZM4.68333 10H1.5L3.16667 6.66667H2C0.895431 6.66667 0 5.77124 0 4.66667V2C0 0.895429 0.89543 0 2 0H4.66667C5.77124 0 6.66667 0.895431 6.66667 2V5.5612C6.66667 5.87169 6.59438 6.17791 6.45552 6.45562L4.68333 10Z" fill="#4CAF50"/>
+    </svg>`
+
+    icons["code-block"]=`
+    <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.43143 9.98413L0 7.73016V4.98413L4.43143 2.71429V4.43651L0.673577 6.34921L4.43143 8.26984V9.98413Z" fill="#4CAF50"/>
+    <path d="M8.29473 0L6.5 12H4.70527L6.5 0H8.29473Z" fill="#4CAF50"/>
+    <path d="M8.56858 9.92064V8.20635L12.3264 6.34921L8.56858 4.5V2.77778L13 4.98413V7.73016L8.56858 9.92064Z" fill="#4CAF50"/>
+    </svg>`
+
+    icons["link"]=`
+    <svg width="24" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9 0H6.6V2.4H9C9.99 2.4 10.8 4.02 10.8 6C10.8 7.98 9.99 9.6 9 9.6H6.6V12H9C10.656 12 12 9.312 12 6C12 2.688 10.656 0 9 0ZM5.4 9.6H3C2.01 9.6 1.2 7.98 1.2 6C1.2 4.02 2.01 2.4 3 2.4H5.4V0H3C1.344 0 0 2.688 0 6C0 9.312 1.344 12 3 12H5.4V9.6ZM3.6 4.8H8.4V7.2H3.6V4.8Z" fill="#4CAF50"/>
+    </svg>`
+
+    icons["clean"]=
+    `<svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9.5775 0.5L9.36 2.06H6.015L4.7625 11H3.2025L4.455 2.06H1.1175L1.335 0.5H9.5775Z" fill="#4CAF50"/>
+    <path d="M9.80824 14L11.4552 11.741L9.82174 9.4955H11.1762L12.1302 10.805L13.0887 9.4955H14.4432L12.8097 11.741L14.4567 14H13.1022L12.1302 12.668L11.1627 14H9.80824Z" fill="#4CAF50"/>
+    <path d="M0 11.9375H9.4425V12.3125H0V11.9375Z" fill="#4CAF50"/>
+    </svg>`
+
+    const center= {};
+    const right= {};
+    const justify= {};
+
+    
     console.log(icons)
     const q = new Quill(document.querySelector('#QuillEditor'), {
       modules: {
@@ -178,7 +297,7 @@ function Example() {
     q.disable()
     q.setText("Loading...")
     setQuill(q);
-    
+
   }, []);
 
 
@@ -229,9 +348,85 @@ function Example() {
       {showEdits && <Edits updates={updatesData}></Edits>}
 
       <div id="toolbar">
+        <button className="ql-font toolbarBtn"></button>
+        <button className="ql-header toolbarBtn" value="1"></button>
+        <button className="ql-header toolbarBtn" value="2"></button>
+        <select className="ql-font">
+          <option selected>Sans Serif</option>
+          <option value="inconsolata">Inconsolata</option>
+          <option value="roboto">Roboto</option>
+          <option value="mirza">Mirza</option>
+          <option value="arial">Arial</option>
+        </select>
         <button className="ql-bold toolbarBtn"></button>
         <button className="ql-italic toolbarBtn"></button>
+        <button className="ql-underline toolbarBtn"></button>
+        <button className="ql-strike toolbarBtn"></button>
         <button className="ql-script toolbarBtn" value="super"></button>
+        <button className="ql-script toolbarBtn" value="sub"></button>
+        <select className="ql-align toolbarBtn">
+          <option value=""></option>
+          <option value="center"></option>
+          <option value="right"></option>
+          <option value="justify"></option>
+        </select>
+        <button className="ql-list toolbarBtn" value="ordered"></button>
+        <button className="ql-list toolbarBtn" value="bullet"></button>
+        <button className="ql-indent toolbarBtn" value="-1"></button>
+        <button className="ql-indent toolbarBtn" value="+1"></button>
+        <select className="ql-color toolbarBtn">
+          <option value=""></option>
+          <option value="#e60000"></option>
+          <option value="#ff9900"></option>
+          <option value="#ffff00"></option>
+          <option value="#008a00"></option>
+          <option value="#0066cc"></option>
+          <option value="#9933ff"></option>
+          <option value="#ffffff"></option>
+          <option value="#facccc"></option>
+          <option value="#ffebcc"></option>
+          <option value="#ffffcc"></option>
+          <option value="#cce8cc"></option>
+          <option value="#cce0f5"></option>
+          <option value="#ebd6ff"></option>
+          <option value="#bbbbbb"></option>
+          <option value="#f06666"></option>
+          <option value="#ffc266"></option>
+          <option value="#ffff66"></option>
+          <option value="#66b966"></option>
+          <option value="#66a3e0"></option>
+          <option value="#c285ff"></option>
+          <option value="#888888"></option>
+          <option value="#a10000"></option>
+          <option value="#b26b00"></option>
+          <option value="#b2b200"></option>
+          <option value="#006100"></option>
+          <option value="#0047b2"></option>
+          <option value="#6b24b2"></option>
+          <option value="#444444"></option>
+          <option value="#5c0000"></option>
+          <option value="#663d00"></option>
+          <option value="#666600"></option>
+          <option value="#003700"></option>
+          <option value="#002966"></option>
+          <option value="#3d1466"></option>
+          <option value="custom-color"></option>
+        </select>
+        <select className="ql-background toolbarBtn"></select>
+
+        <button className="ql-blockquote toolbarBtn"></button>
+        <button className="ql-code-block toolbarBtn"></button>
+        <button className="ql-link toolbarBtn"></button>
+        <button className="ql-direction toolbarBtn" value="rtl"></button>
+
+        <button class="ql-clean toolbarBtn"></button>
+        
+        {/* <button className="ql-align toolbarBtn"></button>
+        <button className="ql-align toolbarBtn" value="center"></button>
+        <button className="ql-align toolbarBtn" value="justify"></button>
+        <button className="ql-align toolbarBtn" value="right"></button> */}
+
+
       </div>
 
       <div className="editorContainer" >
