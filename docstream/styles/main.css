@@ -199,3 +199,47 @@ button:focus{
     transform: scale(1.15);
     background: linear-gradient(180deg, #1b1a1a 0%, #2b2b2b 100%) !important;
 }
+
+.ql-picker{
+    color: #4caf50 !important;
+    outline: none;
+    height: 30px !important;
+    height: 33px !important;
+    width: 130px !important;
+    padding-right: 10px;
+    border-radius: 20px 20px 0 0;
+    background-color: #F1F5F9;
+    box-shadow: inset 4px 4px 8px #c9d9e8, inset -4px -4px 8px #ffffff;
+}
+
+.ql-picker:not(.ql-expanded){
+    border-radius: 20px;
+    background-color: #F1F5F9;
+    box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF;
+}
+
+.ql-picker-label{
+    color: #4caf50 !important;
+    border: none !important;
+    /* width: max-content !important; */
+    display: grid !important;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-items: center;
+}
+
+.ql-picker-options{
+    border-radius: 0 0 10px 10px;
+    background: #F1F5F9 !important;
+    box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF !important;
+    outline: none !important;
+    border: none !important;
+}
+
+.ql-picker-item:hover{
+    color: black !important;
+}
+
+.ql-picker-label .ql-stroke{
+    stroke: #4caf50 !important;
+}
