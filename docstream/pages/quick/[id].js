@@ -301,7 +301,13 @@ function Example() {
 
   const [selectable, setSelectable] = useState({
     "ql-bold": false,
-    "ql-italic": false
+    "ql-italic": false,
+    "ql-header-1": false,
+    "ql-header-2": false,
+    "ql-underline": false,
+    "ql-strike": false,
+    "ql-script-super": false,
+    "ql-script-sub": false 
   })
 
   return (
@@ -356,8 +362,8 @@ function Example() {
             <option value="large"></option>
             <option value="huge"></option>
           </select>
-          <button className="ql-header toolbarBtn" value="1"></button>
-          <button className="ql-header toolbarBtn" value="2"></button>
+          <button className={`ql-header toolbarBtn ${selectable["ql-header-1"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-header-1": !selectable["ql-header-1"]})} value="1"></button>
+          <button className={`ql-header toolbarBtn ${selectable["ql-header-2"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-header-2": !selectable["ql-header-2"]})} value="2"></button>
           <select className="ql-font">
             <option selected>Sans Serif</option>
             <option value="inconsolata">Inconsolata</option>
@@ -365,12 +371,14 @@ function Example() {
             <option value="mirza">Mirza</option>
             <option value="arial">Arial</option>
           </select>
-          <button className={`ql-bold toolbarBtn ${selectable["ql-bold"] ? "selected" : ""}`} onClick={() => {setSelectable({...selectable, "ql-bold": !selectable["ql-bold"]})}}></button>
-          <button className="ql-italic toolbarBtn"></button>
-          <button className="ql-underline toolbarBtn"></button>
-          <button className="ql-strike toolbarBtn"></button>
-          <button className="ql-script toolbarBtn" value="super"></button>
-          <button className="ql-script toolbarBtn" value="sub"></button>
+          <button className={`ql-bold toolbarBtn ${selectable["ql-bold"] ? "selected" : ""}`} onClick={(e) => {
+            setSelectable({...selectable, "ql-bold": !selectable["ql-bold"]});
+          }}></button>
+          <button className={`ql-italic toolbarBtn ${selectable["ql-italic"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-italic": !selectable["ql-italic"]})}></button>
+          <button className={`ql-underline toolbarBtn ${selectable["ql-underline"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-underline": !selectable["ql-underline"]})}></button>
+          <button className={`ql-strike toolbarBtn ${selectable["ql-strike"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-strike": !selectable["ql-strike"]})}></button>
+          <button className={`ql-script toolbarBtn ${selectable["ql-script-super"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-script-super": !selectable["ql-script-super"]})} value="super"></button>
+          <button className={`ql-script toolbarBtn ${selectable["ql-script-sub"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-script-sub": !selectable["ql-script-sub"]})} value="sub"></button>
           <select className="ql-align toolbarBtn">
             <option value=""></option>
             <option value="center"></option>

@@ -124,7 +124,7 @@ header>div:nth-of-type(2){
     animation-duration: 0.05s;
     outline: none;
     border: none;
-    transition: all 0.5s ease;
+    transition: all 0.2s ease;
     display: grid !important;
     grid-template-columns: 100% !important;
     align-items: center !important;
@@ -133,6 +133,10 @@ header>div:nth-of-type(2){
     float: none!important;
     height: 30px !important;
     width: 30px !important;
+}
+
+button:focus{
+    outline: none;
 }
 
 #toolbar > button, #toolbar > span{
@@ -191,5 +195,7 @@ header>div:nth-of-type(2){
 }
 
 .selected{
-    background-color: black !important;
+    box-shadow: inset 3px 3px 15px #1b1a1a, inset -3px -3px 15px #2b2b2b !important;
+    transform: scale(1.15);
+    background: linear-gradient(180deg, #1b1a1a 0%, #2b2b2b 100%) !important;
 }
