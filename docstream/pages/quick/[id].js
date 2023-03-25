@@ -326,9 +326,8 @@ function Example() {
           <h2>{documentId}</h2>
         </div>
         <div>
-          <div className="button" onClick={() => { showEdits ? setShowEdits(false) : fetchEdits() }}>
-            {/* {showEdits ? "Hide Edits" : "Show Edits"} */}
-            <svg width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className={`button ${showEdits ? "headerBtnActive": ""}`} onClick={() => { showEdits ? setShowEdits(false) : fetchEdits() }}>
+            <svg style={showEdits ? {display: "none"} : {display:"block"}} width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M22.1127 1H1V35.9426H17.0413M22.1127 1V5.83248H26.199M22.1127 1L26.199 5.83248M26.199 5.83248V14.1375" stroke="#4CAF50" />
               <path d="M18.4257 30.1375L28.1133 13.604L31.8995 15.9695L22.2118 32.503L18.3813 34.627L18.4257 30.1375Z" stroke="#4CAF50" />
               <path d="M33.0827 14.1374L29.2106 11.8526L29.8559 10.5199C30.1064 10.0026 30.7317 9.81262 31.2253 10.1039L33.3736 11.3716C33.8308 11.6414 34.0072 12.2281 33.7751 12.7074L33.0827 14.1374Z" stroke="#4CAF50" />
@@ -336,7 +335,7 @@ function Example() {
               <path d="M13.2522 15.4286V18.7064L15.6584 19.6624" stroke="#4CAF50" stroke-linecap="round" />
             </svg>
 
-            <svg style={{display:"none"}} width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg style={showEdits ? {display: "block"} : {display:"none"}} width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M22.1133 5.83213V1L26.1997 5.83213H22.1133Z" fill="#4CAF50" />
               <path d="M22.1133 1H1V35.94H17.0418M22.1133 1V5.83213H26.1997M22.1133 1L26.1997 5.83213M26.1997 5.83213V14.1365" stroke="#4CAF50" />
               <path d="M18.4262 30.1354L28.1141 13.6031L31.9003 15.9684L22.2124 32.5007L18.3817 34.6245L18.4262 30.1354Z" fill="#4CAF50" />

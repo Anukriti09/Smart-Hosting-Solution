@@ -168,6 +168,7 @@ button:focus{
     outline: none;
     border: none;
     transition: all 0.5s ease;
+    color: #4caf50;
 }
 
 .button:hover {
@@ -242,4 +243,17 @@ button:focus{
 
 .ql-picker-label .ql-stroke{
     stroke: #4caf50 !important;
+}
+
+.headerBtnActive{
+    box-shadow: inset 4px 4px 8px #c9d9e88b, inset -4px -4px 8px #ffffff;
+}
+
+.headerBtnActive:hover{
+    animation: none;
+    box-shadow: inset 4px 4px 8px #c9d9e88b, inset -4px -4px 8px #ffffff;
+}
+
+.main-modal{
+    background-color: #F1F5F9 !important;
 }
