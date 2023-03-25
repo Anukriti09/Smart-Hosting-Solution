@@ -112,9 +112,17 @@ function HelloSign(props) {
         </ModalFooter>
       </Modal> */}
 
-      <div className="form-container" style={showModal ? { display: "block" } : { display: "none" }}>
-        <button onClick={() => { setShowModal(false) }}>Close x</button>
-        <div className="form-header">Digital Signature</div>
+      <div className="form-container" style={showModal ? { display: "grid" } : { display: "none" }}>
+
+        <button className="button" onClick={() => { setShowModal(false) }}>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.83582 5.00012L14.8357 14.6716" stroke-width="4" stroke-linecap="round" />
+            <path d="M14.5075 4.67163L4.83569 14.6716" stroke-width="4" stroke-linecap="round" />
+          </svg>
+
+        </button>
+        <h2>Digital Signature</h2>
+
         <div className="form-input">
           <div>
             <input type="text" placeholder="Enter Name" onChange={(evt) => { setName(evt.target.value) }} />
