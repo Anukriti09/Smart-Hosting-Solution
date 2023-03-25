@@ -307,7 +307,7 @@ function Example() {
     "ql-underline": false,
     "ql-strike": false,
     "ql-script-super": false,
-    "ql-script-sub": false 
+    "ql-script-sub": false
   })
 
   return (
@@ -335,6 +335,18 @@ function Example() {
               <path d="M7.64245 18.7064C7.50877 15.1554 10.2618 12.4239 13.6579 12.4239C17.054 12.4239 19.8071 15.2367 19.8071 18.7064C19.8071 22.1761 17.054 24.9889 13.6579 24.9889C13.6579 24.9889 10.9797 25.1255 9.10823 22.5305M7.64245 18.7064L5.97833 17.5646M7.64245 18.7064L9.29723 17.5646" stroke="#4CAF50" stroke-linecap="round" stroke-linejoin="round" />
               <path d="M13.2522 15.4286V18.7064L15.6584 19.6624" stroke="#4CAF50" stroke-linecap="round" />
             </svg>
+
+            <svg style={{display:"none"}} width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.1133 5.83213V1L26.1997 5.83213H22.1133Z" fill="#4CAF50" />
+              <path d="M22.1133 1H1V35.94H17.0418M22.1133 1V5.83213H26.1997M22.1133 1L26.1997 5.83213M26.1997 5.83213V14.1365" stroke="#4CAF50" />
+              <path d="M18.4262 30.1354L28.1141 13.6031L31.9003 15.9684L22.2124 32.5007L18.3817 34.6245L18.4262 30.1354Z" fill="#4CAF50" />
+              <path d="M33.0835 14.1365L29.2114 11.8518L29.8567 10.5193C30.1072 10.002 30.7325 9.81199 31.2261 10.1032L33.3744 11.3708C33.8317 11.6406 34.0081 12.2273 33.776 12.7066L33.0835 14.1365Z" fill="#4CAF50" />
+              <path d="M18.4262 30.1354L28.1141 13.6031L31.9003 15.9684L22.2124 32.5007L18.3817 34.6245L18.4262 30.1354Z" stroke="#4CAF50" />
+              <path d="M33.0835 14.1365L29.2114 11.8518L29.8567 10.5193C30.1072 10.002 30.7325 9.81199 31.2261 10.1032L33.3744 11.3708C33.8317 11.6406 34.0081 12.2273 33.776 12.7066L33.0835 14.1365Z" stroke="#4CAF50" />
+              <path d="M7.64264 18.7051C7.50896 15.1544 10.2621 12.4231 13.6583 12.4231C17.0544 12.4231 19.8076 15.2357 19.8076 18.7051C19.8076 22.1746 17.0544 24.9872 13.6583 24.9872C13.6583 24.9872 10.98 25.1238 9.10846 22.529M7.64264 18.7051L5.97848 17.5635M7.64264 18.7051L9.29746 17.5635" stroke="#4CAF50" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M13.2526 15.4275V18.7051L15.6588 19.661" stroke="#4CAF50" stroke-linecap="round" />
+            </svg>
+
           </div>
 
           <div onClick={() => { window.print(); }} className="button">
@@ -362,8 +374,8 @@ function Example() {
             <option value="large"></option>
             <option value="huge"></option>
           </select>
-          <button className={`ql-header toolbarBtn ${selectable["ql-header-1"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-header-1": !selectable["ql-header-1"]})} value="1"></button>
-          <button className={`ql-header toolbarBtn ${selectable["ql-header-2"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-header-2": !selectable["ql-header-2"]})} value="2"></button>
+          <button className={`ql-header toolbarBtn ${selectable["ql-header-1"] ? "selected" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-header-1": !selectable["ql-header-1"] })} value="1"></button>
+          <button className={`ql-header toolbarBtn ${selectable["ql-header-2"] ? "selected" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-header-2": !selectable["ql-header-2"] })} value="2"></button>
           <select className="ql-font">
             <option selected>Sans Serif</option>
             <option value="inconsolata">Inconsolata</option>
@@ -372,13 +384,13 @@ function Example() {
             <option value="arial">Arial</option>
           </select>
           <button className={`ql-bold toolbarBtn ${selectable["ql-bold"] ? "selected" : ""}`} onClick={(e) => {
-            setSelectable({...selectable, "ql-bold": !selectable["ql-bold"]});
+            setSelectable({ ...selectable, "ql-bold": !selectable["ql-bold"] });
           }}></button>
-          <button className={`ql-italic toolbarBtn ${selectable["ql-italic"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-italic": !selectable["ql-italic"]})}></button>
-          <button className={`ql-underline toolbarBtn ${selectable["ql-underline"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-underline": !selectable["ql-underline"]})}></button>
-          <button className={`ql-strike toolbarBtn ${selectable["ql-strike"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-strike": !selectable["ql-strike"]})}></button>
-          <button className={`ql-script toolbarBtn ${selectable["ql-script-super"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-script-super": !selectable["ql-script-super"]})} value="super"></button>
-          <button className={`ql-script toolbarBtn ${selectable["ql-script-sub"] ? "selected" : ""}`} onClick={() => setSelectable({...selectable, "ql-script-sub": !selectable["ql-script-sub"]})} value="sub"></button>
+          <button className={`ql-italic toolbarBtn ${selectable["ql-italic"] ? "selected" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-italic": !selectable["ql-italic"] })}></button>
+          <button className={`ql-underline toolbarBtn ${selectable["ql-underline"] ? "selected" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-underline": !selectable["ql-underline"] })}></button>
+          <button className={`ql-strike toolbarBtn ${selectable["ql-strike"] ? "selected" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-strike": !selectable["ql-strike"] })}></button>
+          <button className={`ql-script toolbarBtn ${selectable["ql-script-super"] ? "selected" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-script-super": !selectable["ql-script-super"] })} value="super"></button>
+          <button className={`ql-script toolbarBtn ${selectable["ql-script-sub"] ? "selected" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-script-sub": !selectable["ql-script-sub"] })} value="sub"></button>
           <select className="ql-align toolbarBtn">
             <option value=""></option>
             <option value="center"></option>
