@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import Modal from "@material-tailwind/react/Modal";
-import ModalHeader from "@material-tailwind/react/ModalHeader";
-import ModalBody from "@material-tailwind/react/ModalBody";
-import ModalFooter from "@material-tailwind/react/ModalFooter";
-import Button from "@material-tailwind/react/Button";
-import Icon from "@material-tailwind/react/Icon";
-import Input from "@material-tailwind/react/Input";
+// import Modal from "@material-tailwind/react/Modal";
+// import ModalHeader from "@material-tailwind/react/ModalHeader";
+// import ModalBody from "@material-tailwind/react/ModalBody";
+// import ModalFooter from "@material-tailwind/react/ModalFooter";
+// import Button from "@material-tailwind/react/Button";
+// import Icon from "@material-tailwind/react/Icon";
+// import Input from "@material-tailwind/react/Input";
+// import { display } from "html2canvas/dist/types/css/property-descriptors/display";
 import html2canvas from 'html2canvas';
 import $ from 'jquery';
 
@@ -70,7 +71,7 @@ function HelloSign(props) {
 
       </div>
 
-      <Modal size="lg" style={{backgroundColor: "#F1F5F9 !important;"}} active={showModal} toggler={() => setShowModal(false)}>
+      {/* <Modal size="lg" style={{backgroundColor: "#F1F5F9 !important;"}} active={showModal} toggler={() => setShowModal(false)}>
 
         <ModalHeader
           toggler={() => setShowModal(false)}
@@ -81,7 +82,7 @@ function HelloSign(props) {
         </ModalHeader>
 
         <ModalBody style={{backgroundColor: "#F1F5F9"}}>
-          {/* add form to submit */}
+          
           <div className="flex w-full items-end gap-4 p-1 m-1">
             <Input size="md" outline={true} label="Input Medium" placeholder="Enter Name" type="text" onChange={(evt) => { setName(evt.target.value); }} />
             <Input size="md" outline={true} label="Input Medium" placeholder="Enter Email" type="email" onChange={(e) => { setEmail(e.target.value); }} />
@@ -97,19 +98,36 @@ function HelloSign(props) {
           </div>
         </ModalBody>
         <ModalFooter>
-          {/* <Button
+          <Button
             color="lightBlue"
             ref={buttonRef}
             ripple="light"
             onClick={handleClick}
           >
             Send Sign Request
-          </Button> */}
+          </Button>
           <div className="button" onClick={handleClick}>
             Send Sign Request
           </div>
         </ModalFooter>
-      </Modal>
+      </Modal> */}
+
+      <div className="form-container" style={showModal ? { display: "block" } : { display: "none" }}>
+        <button onClick={() => { setShowModal(false) }}>Close x</button>
+        <div className="form-header">Digital Signature</div>
+        <div className="form-input">
+          <div>
+            <input type="text" placeholder="Enter Name" onChange={(evt) => { setName(evt.target.value) }} />
+            <input type="email" placeholder="Enter Email" onChange={(evt) => { setEmail(evt.target.value) }} />
+          </div>
+          <input type="text" placeholder="Title" onChange={(evt) => { setTitle(evt.target.value) }} />
+          <input type="text" placeholder="Subject" onChange={(evt) => { setSub(evt.target.value) }} />
+          <input type="text" placeholder="Message" onChange={(evt) => { setMess(evt.target.value) }} />
+        </div>
+        <div className="button" onClick={handleClick}>
+          Send Sign Request
+        </div>
+      </div>
     </>
   );
 }

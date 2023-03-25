@@ -257,3 +257,27 @@ button:focus{
 .main-modal{
     background-color: #F1F5F9 !important;
 }
+
+.form-container{
+    height: 400px;
+    width: 20%;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background-color: #F1F5F9;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+    align-items: center;
+    justify-items: center;
+}
+
+.form-container input{
+    background-color: #F1F5F9;
+}
+
+.form-input{
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+}
