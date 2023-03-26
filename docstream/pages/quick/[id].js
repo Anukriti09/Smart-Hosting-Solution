@@ -77,7 +77,6 @@ function Example() {
     socket.once("load-document", async (document) => {
       quill.setContents(document)
       quill.enable()
-      //
       const Quill = (await import('quill')).default;
       deltaQuill = new Quill(".dummy")
       deltaQuill.setContents(document)
@@ -184,26 +183,6 @@ function Example() {
     <path d="M11.2376 11V10.115C11.4426 9.975 11.6701 9.82 11.9201 9.65C12.1751 9.48 12.4251 9.2975 12.6701 9.1025C12.9151 8.9025 13.1326 8.6925 13.3226 8.4725C13.5176 8.2525 13.6576 8.0225 13.7426 7.7825C13.7426 7.5725 13.6701 7.4 13.5251 7.265C13.3801 7.125 13.2026 7.055 12.9926 7.055C12.7826 7.055 12.6001 7.125 12.4451 7.265C12.2951 7.4 12.2201 7.5725 12.2201 7.7825H11.2376C11.2376 7.4625 11.3151 7.1725 11.4701 6.9125C11.6301 6.6525 11.8426 6.4475 12.1076 6.2975C12.3776 6.1475 12.6726 6.0725 12.9926 6.0725C13.3126 6.0725 13.6026 6.1475 13.8626 6.2975C14.1276 6.4475 14.3376 6.6525 14.4926 6.9125C14.6476 7.1725 14.7251 7.4625 14.7251 7.7825C14.7251 7.9875 14.6726 8.1925 14.5676 8.3975C14.4626 8.5975 14.3251 8.7925 14.1551 8.9825C13.9851 9.1725 13.7976 9.355 13.5926 9.53C13.3926 9.705 13.1976 9.8675 13.0076 10.0175H14.6726V11H11.2376Z" fill="#4CAF50"/>
     </svg>`
 
-    // icons["align"]= `
-    // <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-    // <path d="M8 8H0V9.33333H8V8ZM8 2.66667H0V4H8V2.66667ZM0 6.66667H12V5.33333H0V6.66667ZM0 12H12V10.6667H0V12ZM0 0V1.33333H12V0H0Z" fill="#4CAF50"/>
-    // </svg>`
-
-    // icons["align"]["center"] = `
-    // <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-    // <path d="M2.66667 8V9.33333H9.33333V8H2.66667ZM0 12H12V10.6667H0V12ZM0 6.66667H12V5.33333H0V6.66667ZM2.66667 2.66667V4H9.33333V2.66667H2.66667ZM0 0V1.33333H12V0H0Z" fill="#4CAF50"/>
-    // </svg>`
-
-    // icons["align"]["right"] = `
-    // <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-    // <path d="M0 12H12V10.6667H0V12ZM4 9.33333H12V8H4V9.33333ZM0 6.66667H12V5.33333H0V6.66667ZM4 4H12V2.66667H4V4ZM0 0V1.33333H12V0H0Z" fill="#4CAF50"/>
-    // </svg>`
-
-    // icons["align"]["justify"] = `
-    // <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-    // <path d="M0 12H12V10.6667H0V12ZM0 9.33333H12V8H0V9.33333ZM0 6.66667H12V5.33333H0V6.66667ZM0 4H12V2.66667H0V4ZM0 0V1.33333H12V0H0Z" fill="#4CAF50"/>
-    // </svg>`
-
     icons["color"] = `
     <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 12.1333V14H12V12.1333H0ZM3.85714 8.21333H8.14286L8.91429 10.2667H10.7143L6.64286 0H5.35714L1.28571 10.2667H3.08571L3.85714 8.21333ZM6 1.848L7.60286 6.53333H4.39714L6 1.848Z" fill="#4CAF50"/>
@@ -280,12 +259,6 @@ function Example() {
     <path d="M0 11.9375H9.4425V12.3125H0V11.9375Z" fill="#4CAF50"/>
     </svg>`
 
-    const center = {};
-    const right = {};
-    const justify = {};
-
-
-    console.log(icons)
     const q = new Quill(document.querySelector('#QuillEditor'), {
       modules: {
         toolbar: '#toolbar'
