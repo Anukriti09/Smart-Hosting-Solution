@@ -213,7 +213,7 @@ button:focus {
     padding-right: 10px;
     border-radius: 20px 20px 0 0;
     background-color: #F1F5F9;
-    box-shadow: inset 4px 4px 8px #c9d9e8, inset -4px -4px 8px #ffffff;
+    box-shadow: inset 4px 4px 8px #c9d9e8;
 }
 
 .ql-picker:not(.ql-expanded) {
@@ -235,7 +235,8 @@ button:focus {
 .ql-picker-options {
     border-radius: 0 0 10px 10px;
     background: #F1F5F9 !important;
-    box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF !important;
+    /* box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF !important; */
+    box-shadow: inset 4px -4px 8px #c9d9e8, inset -4px -4px 8px #ffffff !important;
     outline: none !important;
     border: none !important;
 }
@@ -356,7 +357,13 @@ button:focus {
     font-size: 1rem;
     font-weight: 500;
 }
-/* 
-.form-container > div:last-of-type:hover{
-    color: black;
-} */
+
+.overlay{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgba(241, 245, 249, 0.527);
+    z-index: 1;
+}

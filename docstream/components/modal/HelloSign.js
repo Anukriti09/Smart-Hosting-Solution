@@ -10,7 +10,7 @@ import React, { useState, useRef, useEffect } from "react";
 import html2canvas from 'html2canvas';
 import $ from 'jquery';
 
-function HelloSign(props) {
+function HelloSign({setOverlay}) {
   const [showModal, setShowModal] = React.useState(false);
   const [Name, setName] = React.useState('');
   const [Email, setEmail] = React.useState('');
@@ -50,7 +50,7 @@ function HelloSign(props) {
 
   return (
     <>
-      <div onClick={(e) => setShowModal(true)} className={`button ${showModal ? 'headerBtnActive' : ''}`}>
+      <div onClick={(e) => {setShowModal(true); setOverlay(true)}} className={`button ${showModal ? 'headerBtnActive' : ''}`}>
         <svg style={showModal ? { display: "none" } : { display: "block" }} width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M20.5956 27.8091L30.7744 11.0066L34.7525 13.4106L24.5737 30.2131L20.5489 32.3716L20.5956 27.8091Z" stroke="#4CAF50" />
           <path d="M35.9957 11.5487L31.9273 9.22672L32.6165 7.85006C32.8735 7.33673 33.5093 7.14427 34.0079 7.42886L36.3365 8.75793C36.7974 9.02101 36.9722 9.59809 36.7346 10.0726L35.9957 11.5487Z" stroke="#4CAF50" />
@@ -111,10 +111,9 @@ function HelloSign(props) {
           </div>
         </ModalFooter>
       </Modal> */}
-
       <div className="form-container" style={showModal ? { display: "grid" } : { display: "none" }}>
 
-        <button className="button" onClick={() => { setShowModal(false) }}>
+        <button className="button" onClick={() => { setShowModal(false); setOverlay(false) }}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4.83582 5.00012L14.8357 14.6716" stroke-width="4" stroke-linecap="round" />
             <path d="M14.5075 4.67163L4.83569 14.6716" stroke-width="4" stroke-linecap="round" />
