@@ -1,12 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-// import Modal from "@material-tailwind/react/Modal";
-// import ModalHeader from "@material-tailwind/react/ModalHeader";
-// import ModalBody from "@material-tailwind/react/ModalBody";
-// import ModalFooter from "@material-tailwind/react/ModalFooter";
-// import Button from "@material-tailwind/react/Button";
-// import Icon from "@material-tailwind/react/Icon";
-// import Input from "@material-tailwind/react/Input";
-// import { display } from "html2canvas/dist/types/css/property-descriptors/display";
 import html2canvas from 'html2canvas';
 import $ from 'jquery';
 
@@ -71,46 +63,6 @@ function HelloSign({setOverlay}) {
 
       </div>
 
-      {/* <Modal size="lg" style={{backgroundColor: "#F1F5F9 !important;"}} active={showModal} toggler={() => setShowModal(false)}>
-
-        <ModalHeader
-          toggler={() => setShowModal(false)}
-          className="text-sm m-10"
-          style={{backgroundColor: "#F1F5F9 !important;"}}
-        >
-          Digital Sign
-        </ModalHeader>
-
-        <ModalBody style={{backgroundColor: "#F1F5F9"}}>
-          
-          <div className="flex w-full items-end gap-4 p-1 m-1">
-            <Input size="md" outline={true} label="Input Medium" placeholder="Enter Name" type="text" onChange={(evt) => { setName(evt.target.value); }} />
-            <Input size="md" outline={true} label="Input Medium" placeholder="Enter Email" type="email" onChange={(e) => { setEmail(e.target.value); }} />
-          </div>
-          <div className="flex w-full items-end gap-4 p-1 m-1">
-            <Input color="indigo" outline={true} label="Input Indigo" placeholder="Title" type="text" onChange={(e) => { setTitle(e.target.value); }} />
-          </div>
-          <div className="flex w-full items-end gap-4 p-1 m-1">
-            <Input color="indigo" outline={true} label="Input Indigo" placeholder="Subject" type="text" onChange={(e) => { setSub(e.target.value); }} />
-          </div>
-          <div className="flex w-full items-end gap-4 p-1 m-1">
-            <Input color="indigo" outline={true} label="Input Indigo" placeholder="Message" type="text" onChange={(e) => { setMess(e.target.value); }} />
-          </div>
-        </ModalBody>
-        <ModalFooter>
-          <Button
-            color="lightBlue"
-            ref={buttonRef}
-            ripple="light"
-            onClick={handleClick}
-          >
-            Send Sign Request
-          </Button>
-          <div className="button" onClick={handleClick}>
-            Send Sign Request
-          </div>
-        </ModalFooter>
-      </Modal> */}
       <div className="form-container" style={showModal ? { display: "grid" } : { display: "none" }}>
 
         <button className="button" onClick={() => { setShowModal(false); setOverlay(false) }}>
