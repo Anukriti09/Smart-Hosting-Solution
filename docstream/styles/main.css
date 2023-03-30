@@ -278,7 +278,7 @@ button:focus {
     justify-items: center;
     /* padding: 50px 100px; */
     padding: 10px 20px;
-    box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF;
+    /* box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF; */
     /* box-shadow: 3px 3px 5px #BABECC, -5px -5px 10px #FFF; */
     border-radius: 20px;
 }
@@ -369,7 +369,6 @@ button:focus {
 }
 
 .Modal{
-    min-height: 300px;
     max-width: 90vw;
     height: auto;
     position: fixed;
@@ -379,30 +378,38 @@ button:focus {
     background-color: #F1F5F9;
     z-index: 1;
     display: grid;
-    grid-template-rows: auto 80%;
+    grid-template-areas: 'close' 'heading' "shareLink" "button";
     align-items: center;
     justify-items: center;
+    padding: 20px;
+    border-radius: 20px;
 }
 
-.Modal h2 {
+.Modal > h2 {
+    grid-area: heading;
     font-size: 1.5rem;
     color: #4caf50;
     justify-self: center;
     position: relative;
     font-weight: 500;
-    margin: auto;
-    display: inline-block;
-    align-self: center;
+    margin: 0;
+    align-self: flex-start;
+    transform: translate(0, -30px);
 }
 
 .ShareLink{
-    padding: 10px 20px;
+    grid-area: shareLink;
+    padding: 10px 30px;
     margin: 7px;
     box-shadow: inset 4px 4px 8px #c9d9e88b, inset -4px -4px 8px #ffffff;
     border-radius: 30px;
+    margin: 20px 20px;
+    margin-top: 0;
 }
 
 .Modal>button {
+    grid-area: close;
+    justify-self: right;
     position: relative;
     margin-top: 8px;
     stroke: black;
@@ -410,7 +417,8 @@ button:focus {
     align-items: center;
     justify-items: center;
     transition: all 0.2s ease;
-    padding: 10px 20px;
+    padding: 10px 10px;
+    margin: 0 5px;
     box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF;
 }
 
@@ -418,3 +426,16 @@ button:focus {
     stroke: #4caf50;
 }
 
+.Modal > div:last-of-type{
+    grid-area: button;
+    margin: 10px 0;
+}
+
+.Modal > .clicked{
+    animation: none;
+    box-shadow: inset 4px 4px 8px #c9d9e88b, inset -4px -4px 8px #ffffff;
+}
+/* 
+.Modal > .clicked:hover{
+    box-shadow: inset 4px 4px 8px #c9d9e88b, inset -4px -4px 8px #ffffff;
+} */

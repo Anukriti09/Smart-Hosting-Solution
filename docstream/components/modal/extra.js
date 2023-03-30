@@ -1,29 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
-import Modal from "@material-tailwind/react/Modal";
-import ModalHeader from "@material-tailwind/react/ModalHeader";
-import ModalBody from "@material-tailwind/react/ModalBody";
-import ModalFooter from "@material-tailwind/react/ModalFooter";
-import Button from "@material-tailwind/react/Button";
-import Icon from "@material-tailwind/react/Icon";
-import Input from "@material-tailwind/react/Input";
-import Popover from "@material-tailwind/react/Popover";
-import PopoverContainer from "@material-tailwind/react/PopoverContainer";
-import PopoverHeader from "@material-tailwind/react/PopoverHeader";
-import PopoverBody from "@material-tailwind/react/PopoverBody";
-import Alert from "@material-tailwind/react/Alert";
-import Link from "next/dist/client/link";
 
 import FeedBack from "./FeedBack";
 
 function ShareModal({ setOverlay }) {
   const [showModal, setShowModal] = React.useState(false);
   const [LinkText, setLinkText] = React.useState();
+  const [clicked, setClicked] = useState(false)
 
   useEffect(() => {
     setLinkText(window.location.href);
-  });
-
-  const buttonRef = useRef();
+    setClicked(false)
+  }, []);
 
   return (
     <>
@@ -44,69 +31,7 @@ function ShareModal({ setOverlay }) {
 
       </div>
 
-      <div className="Modal" style={showModal ? { display: "grid" } : { display: "none" }}>
-        <button className="button" onClick={() => { setShowModal(false); setOverlay(false) }}>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.83582 5.00012L14.8357 14.6716" stroke-width="4" stroke-linecap="round" />
-            <path d="M14.5075 4.67163L4.83569 14.6716" stroke-width="4" stroke-linecap="round" />
-          </svg>
-        </button>
-        <h2>Share</h2>
-        <div className="ShareLink">{LinkText}</div>
-        <div onClick={() => navigator.clipboard.writeText(LinkText)} className="button">
-          Copy Link
-        </div>
-      </div>
-
-
-
-      {/* <Modal size="sm" active={showModal} toggler={() => setShowModal(false)}>
-        <ModalHeader
-          toggler={() => {setShowModal(false); setOverlay(false)}}
-          className="text-sm m-10"
-        >
-          Share
-        </ModalHeader>
-        <ModalBody>
-          <Alert color="blueGray">{LinkText}</Alert>
-        </ModalBody>
-        <ModalFooter>
-          <Button
-            color="lightBlue"
-            ref={buttonRef}
-            ripple="light"
-            onClick={() => navigator.clipboard.writeText(LinkText)}
-          >
-            Copy Link
-          </Button>
-
-          <Popover placement="right" ref={buttonRef}>
-            <PopoverContainer>
-              <PopoverHeader>Link copied</PopoverHeader>
-              <PopoverBody>
-                Give Us your valuable feedback
-                <br></br>
-                <Button
-                  color="green"
-                  buttonType="filled"
-                  size="sm"
-                  rounded={false}
-                  block={false}
-                  iconOnly={false}
-                  ripple="light"
-                  onClick={() => {
-                    setShowModal(false);
-                  }}
-                >
-                  <Link href="https://tzs775l4pyp.typeform.com/to/D75cYT2I">
-                    <a target="_blank">Feedback</a>
-                  </Link>
-                </Button>
-              </PopoverBody>
-            </PopoverContainer>
-          </Popover>
-        </ModalFooter>
-      </Modal> */}
+      
     </>
   );
 }
