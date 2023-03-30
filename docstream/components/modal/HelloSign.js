@@ -118,7 +118,6 @@ function HelloSign({setOverlay}) {
             <path d="M4.83582 5.00012L14.8357 14.6716" stroke-width="4" stroke-linecap="round" />
             <path d="M14.5075 4.67163L4.83569 14.6716" stroke-width="4" stroke-linecap="round" />
           </svg>
-
         </button>
         <h2>Digital Signature</h2>
 

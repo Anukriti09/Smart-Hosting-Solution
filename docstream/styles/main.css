@@ -364,6 +364,57 @@ button:focus {
     width: 100vw;
     top: 0;
     left: 0;
-    background-color: rgba(241, 245, 249, 0.527);
+    background-color: rgba(0, 0, 0, 0.25);
     z-index: 1;
 }
+
+.Modal{
+    min-height: 300px;
+    max-width: 90vw;
+    height: auto;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background-color: #F1F5F9;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: auto 80%;
+    align-items: center;
+    justify-items: center;
+}
+
+.Modal h2 {
+    font-size: 1.5rem;
+    color: #4caf50;
+    justify-self: center;
+    position: relative;
+    font-weight: 500;
+    margin: auto;
+    display: inline-block;
+    align-self: center;
+}
+
+.ShareLink{
+    padding: 10px 20px;
+    margin: 7px;
+    box-shadow: inset 4px 4px 8px #c9d9e88b, inset -4px -4px 8px #ffffff;
+    border-radius: 30px;
+}
+
+.Modal>button {
+    position: relative;
+    margin-top: 8px;
+    stroke: black;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    transition: all 0.2s ease;
+    padding: 10px 20px;
+    box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF;
+}
+
+.Modal>button:hover {
+    stroke: #4caf50;
+}
+

@@ -44,7 +44,25 @@ function ShareModal({setOverlay}) {
 
       </div>
 
-      <Modal size="sm" active={showModal} toggler={() => setShowModal(false)}>
+        <div className="Modal">
+          <div>
+            <button className="button" onClick={() => { setShowModal(false); setOverlay(false)}}>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.83582 5.00012L14.8357 14.6716" stroke-width="4" stroke-linecap="round" />
+                <path d="M14.5075 4.67163L4.83569 14.6716" stroke-width="4" stroke-linecap="round" />
+              </svg>
+            </button>
+            <h2>Share</h2>
+            <div className="ShareLink">{LinkText}</div>
+            <div onClick={() => navigator.clipboard.writeText(LinkText)} className="button">
+                Copy Link
+            </div>
+          </div>
+        </div>
+
+      
+
+      {/* <Modal size="sm" active={showModal} toggler={() => setShowModal(false)}>
         <ModalHeader
           toggler={() => {setShowModal(false); setOverlay(false)}}
           className="text-sm m-10"
@@ -55,17 +73,14 @@ function ShareModal({setOverlay}) {
           <Alert color="blueGray">{LinkText}</Alert>
         </ModalBody>
         <ModalFooter>
-          {/* <Button
+          <Button
             color="lightBlue"
             ref={buttonRef}
             ripple="light"
             onClick={() => navigator.clipboard.writeText(LinkText)}
           >
             Copy Link
-          </Button> */}
-          <div onClick={() => navigator.clipboard.writeText(LinkText)} className="button">
-              Copy Link
-          </div>
+          </Button>
 
           <Popover placement="right" ref={buttonRef}>
             <PopoverContainer>
@@ -93,7 +108,7 @@ function ShareModal({setOverlay}) {
             </PopoverContainer>
           </Popover>
         </ModalFooter>
-      </Modal>
+      </Modal> */}
     </>
   );
 }
