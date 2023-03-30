@@ -1,15 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 function ShareModal({ setOverlay }) {
-  const [showModal, setShowModal] = React.useState(false);
-  const [LinkText, setLinkText] = React.useState();
-  const [clicked, setClicked] = React.useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [LinkText, setLinkText] = useState();
+  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     setLinkText(window.location.href);
-  });
-
-  const buttonRef = useRef();
+    setClicked(false) 
+  }, []);
 
   return (
     <>
@@ -29,7 +28,7 @@ function ShareModal({ setOverlay }) {
       </div>
 
       <div className="Modal" style={showModal ? { display: "grid" } : { display: "none" }}>
-        <button className="button" onClick={() => { setShowModal(false); setOverlay(false); setClicked(false) }}>
+        <button className="button" onClick={() => { setShowModal(false); setOverlay(false);}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4.83582 5.00012L14.8357 14.6716" stroke-width="4" stroke-linecap="round" />
             <path d="M14.5075 4.67163L4.83569 14.6716" stroke-width="4" stroke-linecap="round" />
