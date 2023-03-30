@@ -1,19 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import Modal from "@material-tailwind/react/Modal";
-import ModalHeader from "@material-tailwind/react/ModalHeader";
-import ModalBody from "@material-tailwind/react/ModalBody";
-import ModalFooter from "@material-tailwind/react/ModalFooter";
-import Button from "@material-tailwind/react/Button";
-import Icon from "@material-tailwind/react/Icon";
-import Input from "@material-tailwind/react/Input";
 import DownloadCard from "./DownloadCard"
-import html2canvas from 'html2canvas';
 import $ from 'jquery';
 
-function DownloadHelloSign(props) {
+function DownloadHelloSign({ setOverlay }) {
     const [showModal, setShowModal] = React.useState(false);
     const buttonRef = useRef();
     const [items, setItems] = React.useState([]);
+
 
     async function handleClick(e) {
         setShowModal(true);
@@ -37,7 +30,7 @@ function DownloadHelloSign(props) {
 
     return (
         <>
-            <div onClick={handleClick} className={`button ${showModal ? 'headerBtnActive' : ''}`}>
+            <div onClick={() => {handleClick(); setOverlay(true)}} className={`button ${showModal ? 'headerBtnActive' : ''}`}>
                 <svg style={showModal ? { display: "none" } : { display: "block" }} width="34" height="39" viewBox="0 0 34 39" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M20.8538 31.9779C20.7167 28.4763 23.5393 25.7828 27.0211 25.7828C30.5029 25.7828 33.3255 28.5564 33.3255 31.9779C33.3255 35.3994 30.5029 38.173 27.0211 38.173C27.0211 38.173 24.2753 38.3077 22.3566 35.7488M20.8538 31.9779L19.1476 30.852M20.8538 31.9779L22.5503 30.852" stroke="#4CAF50" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M26.6052 28.7456V31.9779L29.0721 32.9206" stroke="#4CAF50" stroke-linecap="round" />
@@ -57,21 +50,19 @@ function DownloadHelloSign(props) {
 
             </div>
 
-            <Modal size="lg" active={showModal} toggler={() => setShowModal(false)}>
-
-                <ModalHeader
-                    toggler={() => setShowModal(false)}
-                    className="text-sm m-10"
-                >
-                    Previous Sign Request
-                </ModalHeader>
-
-                <ModalBody>
-
+            <div className="Modal HelloSignModal" style={showModal ? { display: "grid" } : { display: "none" }}>
+                {/* Close Button */}
+                <button className="button" onClick={() => { setShowModal(false); setOverlay(false); }}>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.83582 5.00012L14.8357 14.6716" stroke-width="4" stroke-linecap="round" />
+                        <path d="M14.5075 4.67163L4.83569 14.6716" stroke-width="4" stroke-linecap="round" />
+                    </svg>
+                </button>
+                <h2>Previous Sign Request</h2>
+                <div>
                     {itemList}
-
-                </ModalBody>
-            </Modal>
+                </div>
+            </div>
         </>
     );
 }

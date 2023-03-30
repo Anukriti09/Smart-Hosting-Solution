@@ -439,3 +439,20 @@ button:focus {
 .Modal > .clicked:hover{
     box-shadow: inset 4px 4px 8px #c9d9e88b, inset -4px -4px 8px #ffffff;
 } */
+
+.HelloSignModal{
+    max-height: 70vh;
+    overflow: auto;
+    grid-template-rows: auto 60px auto;
+}
+
+.HelloSignModal>h2{
+    margin-top: 50px;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px grey;  */
+    border-radius: 10px;
+  }  

@@ -335,7 +335,7 @@ function Example() {
               </svg>
             </div>
 
-            <DownloadHelloSign  text="Previous Sig requests" />
+            <DownloadHelloSign  setOverlay={setOverlay} text="Previous Sig requests" />
             <HelloSign setOverlay={setOverlay} text="Digital sign button" />
             <ShareModal setOverlay={setOverlay} text="share" />
           </div>
