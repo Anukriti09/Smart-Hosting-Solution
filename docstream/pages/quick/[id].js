@@ -1,28 +1,11 @@
-import "quill/dist/quill.core.css";
 import React, { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
+import "quill/dist/quill.core.css";
 import { io } from 'socket.io-client';
 import { useRouter } from "next/dist/client/router";
-import Router from "next/dist/next-server/server/router";
-import Button from "@material-tailwind/react/Button";
-import Icon from "@material-tailwind/react/Icon";
 import ShareModal from "../../components/modal/ShareModal";
-import Modal from "@material-tailwind/react/Modal";
-import ModalHeader from "@material-tailwind/react/ModalHeader";
-import ModalBody from "@material-tailwind/react/ModalBody";
-import { useUser } from '../../lib/hooks';
-import Form from '../../components/form';
-import Alert from "@material-tailwind/react/Alert";
-import H4 from "@material-tailwind/react/Heading4";
-import html2canvas from 'html2canvas';
-import $ from 'jquery';
 import HelloSign from "../../components/modal/HelloSign";
 import DownloadHelloSign from "../../components/modal/DownloadHelloSign";
-
 import Edits from "../../models/Edits";
-import background from '../Background.svg';
-
-import bold from 'quill/assets/icons/bold.svg'
 
 const SAVE_INTERVAL_MS = 2000;
 const TOOLBAR_OPTIONS = [
@@ -283,14 +266,20 @@ function Example() {
     "ql-script-sub": false
   })
 
+  const [toggleBlack, setToggleBlack] = useState(false);
+  const handleToggleBlack = () => {
+    setToggleBlack(!toggleBlack);
+  };
+
   const [overlay, setOverlay] = useState(false)
 
   return (
-    <div className="masterContainer" style={overlay ? {overflowY: "hidden", maxHeight: "100vh"} : {}}>
-      <div style={overlay ? {display: "block"} : {display: "none"}} className="overlay"></div>
+    <div className="masterContainer" style={overlay ? { overflowY: "hidden", maxHeight: "100vh" } : {}}>
+      <div style={overlay ? { display: "block" } : { display: "none" }} className="overlay"></div>
       <div className="mainContainer">
-        <header className="header">
+        <header className={`header ${toggleBlack ? "header-dark" : ""}`}>
           <div>
+            {/* Docstream main logo */}
             <svg onClick={() => router.push("/")} className="main-logo" width="65" height="67" viewBox="0 0 65 67" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M64.5 59.7477V64.0016C64.5 64.83 63.8284 65.5016 63 65.5016H2C1.17157 65.5016 0.5 64.83 0.5 64.0016V59.7476C0.5 58.9192 1.17157 58.2477 2 58.2477H19.1578C19.6135 58.2477 20.0444 58.4548 20.3291 58.8106L21.1916 59.8888C21.666 60.4818 22.3843 60.827 23.1438 60.827H39.7127C40.5284 60.827 41.2929 60.429 41.7607 59.7607L42.372 58.8875C42.6527 58.4865 43.1114 58.2477 43.6008 58.2477H63C63.8284 58.2477 64.5 58.9192 64.5 59.7477Z" fill="#4CAF50" stroke="#4CAF50" />
               <path d="M3.09528 61.8745H19.0873M44.3651 61.8745H60.8731" stroke="white" stroke-linecap="round" />
@@ -303,7 +292,7 @@ function Example() {
             <h2>{documentId}</h2>
           </div>
           <div>
-            <div className={`button ${showEdits ? "headerBtnActive" : ""}`} onClick={() => { showEdits ? setShowEdits(false) : fetchEdits() }}>
+            <div className={`button ${showEdits ? "headerBtnActive" : ""} ${toggleBlack? "button-dark" : "" } ${showEdits && toggleBlack? "headerBtnActive-dark" : "" }`} onClick={() => { showEdits ? setShowEdits(false) : fetchEdits() }}>
               <svg style={showEdits ? { display: "none" } : { display: "block" }} width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.1127 1H1V35.9426H17.0413M22.1127 1V5.83248H26.199M22.1127 1L26.199 5.83248M26.199 5.83248V14.1375" stroke="#4CAF50" />
                 <path d="M18.4257 30.1375L28.1133 13.604L31.8995 15.9695L22.2118 32.503L18.3813 34.627L18.4257 30.1375Z" stroke="#4CAF50" />
@@ -325,7 +314,7 @@ function Example() {
 
             </div>
 
-            <div onClick={() => { window.print(); }} className="button">
+            <div onClick={() => { window.print(); }} className={`button ${toggleBlack ? "button-dark" : ""}`}>
               <svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M27.2061 1H6.29379V9.37482M27.2061 1V5.72357H31.2536M27.2061 1L31.2536 5.72357M31.2536 5.72357V14.3997M28.2097 35.0576L6.29379 35.1551V17.9146M26.6139 26.6828H24.8153C24.4054 26.6828 24.1697 27.149 24.4127 27.4791L29.9986 35.0688C30.1984 35.3403 30.6042 35.3403 30.804 35.0688L36.3899 27.4791C36.6329 27.149 36.3972 26.6828 35.9872 26.6828H34.1887C33.9125 26.6828 33.6887 26.4589 33.6887 26.1828V16.0163C33.6887 15.7402 33.4648 15.5163 33.1887 15.5163H27.6139C27.3378 15.5163 27.1139 15.7402 27.1139 16.0163V26.1828C27.1139 26.4589 26.8901 26.6828 26.6139 26.6828Z" stroke="#4CAF50" />
                 <path d="M1 10.154H11.566C11.8422 10.154 12.066 10.3778 12.066 10.654V16.5557C12.066 16.8319 11.8422 17.0557 11.566 17.0557H1C0.723858 17.0557 0.5 16.8319 0.5 16.5557V10.654C0.5 10.3778 0.723858 10.154 1 10.154Z" stroke="#4CAF50" />
@@ -335,9 +324,9 @@ function Example() {
               </svg>
             </div>
 
-            <DownloadHelloSign  setOverlay={setOverlay} text="Previous Sig requests" />
-            <HelloSign setOverlay={setOverlay} text="Digital sign button" />
-            <ShareModal setOverlay={setOverlay} text="share" />
+            <DownloadHelloSign setOverlay={setOverlay} toggleBlack={toggleBlack} text="Previous Sig requests" />
+            <HelloSign setOverlay={setOverlay} toggleBlack={toggleBlack} text="Digital sign button" />
+            <ShareModal setOverlay={setOverlay} toggleBlack={toggleBlack} text="share" />
           </div>
         </header>
 
@@ -359,9 +348,7 @@ function Example() {
               <option value="mirza">Mirza</option>
               <option value="arial">Arial</option>
             </select>
-            <button className={`ql-bold toolbarBtn ${selectable["ql-bold"] ? "selected" : ""}`} onClick={(e) => {
-              setSelectable({ ...selectable, "ql-bold": !selectable["ql-bold"] });
-            }}></button>
+            <button className={`ql-bold toolbarBtn ${selectable["ql-bold"] ? "selected" : ""}`} onClick={(e) => { setSelectable({ ...selectable, "ql-bold": !selectable["ql-bold"] }); }}></button>
             <button className={`ql-italic toolbarBtn ${selectable["ql-italic"] ? "selected" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-italic": !selectable["ql-italic"] })}></button>
             <button className={`ql-underline toolbarBtn ${selectable["ql-underline"] ? "selected" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-underline": !selectable["ql-underline"] })}></button>
             <button className={`ql-strike toolbarBtn ${selectable["ql-strike"] ? "selected" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-strike": !selectable["ql-strike"] })}></button>
@@ -429,15 +416,16 @@ function Example() {
         <button className="ql-align toolbarBtn" value="justify"></button>
         <button className="ql-align toolbarBtn" value="right"></button> */}
 
-
           </div>
         </div>
 
         <div className="editorContainer" >
           <div id="QuillEditor" className="" />
+          {/* <DarkTheme toggleBlack={toggleBlack} setToggleBlack={setToggleBlack} /> */}
+          <button onClick={handleToggleBlack}>Dark Theme</button>
+          {/* <DownloadHelloSign toggleBlack={toggleBlack}/> */}
         </div>
         <div className="dummy" style={{ display: "none" }}></div>
-
       </div>
     </div>
   );
