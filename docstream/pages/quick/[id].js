@@ -106,6 +106,7 @@ function Example() {
           original: deltaQuill.getContents(),
           changes: QuillChanges
         })
+        QuillChanges = []
         deltaQuill.setContents(quill.getContents())
       }
     }
