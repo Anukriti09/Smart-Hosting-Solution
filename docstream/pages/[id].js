@@ -146,13 +146,15 @@ function Example() {
       socket.emit("send-changes", delta)
       QuillChanges.push(delta)
       numberOfQuillChanges += 1
-      if (numberOfQuillChanges != 0 && numberOfQuillChanges > 10) {
+      if (numberOfQuillChanges != 0 && numberOfQuillChanges > 15) {
         numberOfQuillChanges = 0
+        console.log(QuillChanges)
         socket.emit('edited-document', {
           sender: username,
           original: deltaQuill.getContents(),
           changes: QuillChanges
         })
+        QuillChanges = []
         deltaQuill.setContents(quill.getContents())
       }
     }
