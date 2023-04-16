@@ -1,12 +1,8 @@
 import React, { useEffect } from 'react'
 
-
-
-
 const Edits = ({ updates }) => {
     let transformedFromDocuments = []
     let transformedToDocuments = []
-
 
     let okay = async () => {
         return new Promise(async (res, rej) => {
@@ -66,4 +62,4 @@ const Edits = ({ updates }) => {
     )
 }
 
-export default Edits
+export default Edits;
