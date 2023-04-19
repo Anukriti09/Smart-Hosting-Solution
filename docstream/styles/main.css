@@ -333,6 +333,11 @@ button:focus {
     box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF;
 }
 
+.toolbarContainer-dark .ql-picker:not(.ql-expanded){
+    background-color: #141515;
+    box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020;
+}
+
 .ql-picker-label {
     color: #4caf50 !important;
     border: none !important;
@@ -344,7 +349,6 @@ button:focus {
 
 .toolbarContainer-dark .ql-picker-label {
     color: #4caf50 !important;
-    background-color: #1b1a1a;
     border: none !important;
     display: grid !important;
     grid-template-columns: auto auto;
