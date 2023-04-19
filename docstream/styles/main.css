@@ -166,7 +166,6 @@
     animation-duration: 0.05s;
     outline: none;
     border: none;
-    transition: all 0.2s ease;
     display: grid !important;
     grid-template-columns: 100% !important;
     align-items: center !important;
@@ -186,7 +185,6 @@
     animation-duration: 0.05s;
     outline: none;
     border: none;
-    transition: all 0.2s ease;
     display: grid !important;
     grid-template-columns: 100% !important;
     align-items: center !important;
@@ -239,7 +237,6 @@ button:focus {
     animation-duration: 0.05s;
     outline: none;
     border: none;
-    transition: all 0.5s ease;
     color: #4caf50;
 }
 
@@ -247,13 +244,12 @@ button:focus {
     position: relative;
     padding: 10px 40px;
     border-radius: 20px;
-    background-color: #1b1a1a;
+    background-color: #141515;
     box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020;
     cursor: pointer;
     animation-duration: 0.05s;
     outline: none;
     border: none;
-    transition: all 0.5s ease;
     color: #4caf50;
 }
 
@@ -266,7 +262,8 @@ button:focus {
 .button-dark:hover {
     animation-name: darkshadow;
     animation-timing-function: ease;
-    box-shadow: inset 4px 4px 8px #141515, inset -4px -4px 8px #202020;
+    box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020;
+    /* box-shadow: inset 4px 4px 8px #141515, inset -4px -4px 8px #202020; */
 }
 
 @keyframes shadow {
@@ -356,7 +353,6 @@ button:focus {
     justify-items: center;
 }
 
-
 .ql-picker-options {
     border-radius: 0 0 10px 10px;
     background: #F1F5F9 !important;
@@ -424,6 +420,11 @@ button:focus {
     border-radius: 20px;
 }
 
+.form-container-dark{
+    background-color: #141515;
+    box-shadow: inset 4px 4px 8px #141515, inset -4px -4px 8px #202020;
+}
+
 .form-input>div:nth-of-type(1) {
     display: grid;
     position: relative;
@@ -460,10 +461,12 @@ button:focus {
     stroke: #4caf50;
 }
 
-
-
 .form-container input {
     background-color: #F1F5F9;
+}
+
+.form-container-dark input {
+    background-color: #141515;
 }
 
 .form-input {
@@ -479,6 +482,11 @@ button:focus {
     border-radius: 30px;
 }
 
+.form-input-dark input {
+    color: white;
+    box-shadow: inset 4px 4px 8px #101010, inset -4px -4px 8px #202020;
+}
+
 .form-input input:focus {
     box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
 }
@@ -486,6 +494,11 @@ button:focus {
 .form-input input::placeholder {
     font-size: 1rem;
     color: rgba(0, 0, 0, 0.603)
+}
+
+.form-input-dark input::placeholder {
+    font-size: 1rem;
+    color: #F1F5F9;
 }
 
 .form-input input:focus {
@@ -526,6 +539,10 @@ button:focus {
     border-radius: 20px;
 }
 
+.Modal-dark{
+    background-color: #1b1a1a;
+}
+
 .Modal>h2 {
     grid-area: heading;
     font-size: 1.5rem;
@@ -563,6 +580,11 @@ button:focus {
     box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF;
 }
 
+.Modal>.button-dark{
+    background-color: #1b1a1a;
+    box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020;
+}
+
 .Modal>button:hover {
     stroke: #4caf50;
 }
@@ -586,6 +608,13 @@ button:focus {
     max-height: 70vh;
     overflow: auto;
     grid-template-rows: auto 60px auto;
+}
+
+.HelloSignModal-dark {
+    max-height: 70vh;
+    overflow: auto;
+    grid-template-rows: auto 60px auto;
+    background-color: #1b1a1a;
 }
 
 .HelloSignModal>h2 {

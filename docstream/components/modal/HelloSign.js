@@ -63,9 +63,9 @@ function HelloSign({setOverlay, toggleBlack}) {
 
       </div>
 
-      <div className="form-container" style={showModal ? { display: "grid" } : { display: "none" }}>
+      <div className={`form-container ${toggleBlack? "form-container-dark" : ""}`} style={showModal ? { display: "grid" } : { display: "none" }}>
 
-        <button className="button" onClick={() => { setShowModal(false); setOverlay(false) }}>
+        <button className={`button ${toggleBlack? "button-dark" : ""}`} onClick={() => { setShowModal(false); setOverlay(false) }}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4.83582 5.00012L14.8357 14.6716" stroke-width="4" stroke-linecap="round" />
             <path d="M14.5075 4.67163L4.83569 14.6716" stroke-width="4" stroke-linecap="round" />
@@ -73,7 +73,7 @@ function HelloSign({setOverlay, toggleBlack}) {
         </button>
         <h2>Digital Signature</h2>
 
-        <div className="form-input">
+        <div className={`form-input ${toggleBlack? "form-input-dark" : ""}`}>
           <div>
             <input type="text" placeholder="Enter Name" onChange={(evt) => { setName(evt.target.value) }} />
             <input type="email" placeholder="Enter Email" onChange={(evt) => { setEmail(evt.target.value) }} />
@@ -82,7 +82,7 @@ function HelloSign({setOverlay, toggleBlack}) {
           <input type="text" placeholder="Subject" onChange={(evt) => { setSub(evt.target.value) }} />
           <input type="text" placeholder="Message" onChange={(evt) => { setMess(evt.target.value) }} />
         </div>
-        <div className="button" onClick={handleClick}>
+        <div className={`button ${toggleBlack? "button-dark" : ""}`}onClick={handleClick}>
           Send Sign Request
         </div>
       </div>
