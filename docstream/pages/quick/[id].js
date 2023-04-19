@@ -293,7 +293,7 @@ function Example() {
             <h2>{documentId}</h2>
           </div>
           <div>
-            <div className={`button ${showEdits ? "headerBtnActive" : ""} ${toggleBlack? "button-dark" : "" } ${showEdits && toggleBlack? "headerBtnActive-dark" : "" }`} onClick={() => { showEdits ? setShowEdits(false) : fetchEdits() }}>
+            <div className={`button ${showEdits ? "headerBtnActive" : ""} ${toggleBlack ? "button-dark" : ""} ${showEdits && toggleBlack ? "headerBtnActive-dark" : ""}`} onClick={() => { showEdits ? setShowEdits(false) : fetchEdits() }}>
               <svg style={showEdits ? { display: "none" } : { display: "block" }} width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.1127 1H1V35.9426H17.0413M22.1127 1V5.83248H26.199M22.1127 1L26.199 5.83248M26.199 5.83248V14.1375" stroke="#4CAF50" />
                 <path d="M18.4257 30.1375L28.1133 13.604L31.8995 15.9695L22.2118 32.503L18.3813 34.627L18.4257 30.1375Z" stroke="#4CAF50" />
@@ -332,16 +332,16 @@ function Example() {
         </header>
 
         {showEdits && <Edits updates={updatesData}></Edits>}
-        <div className={`toolbarContainer ${toggleBlack? "toolbarContainer-dark" : "" }`}>
+        <div className={`toolbarContainer ${toggleBlack ? "toolbarContainer-dark" : ""}`}>
           <div id="toolbar">
-          <select className={`ql-size ${toggleBlack? "dropDown-dark" : "" }`}>
+            <select className={`ql-size`}>
               <option value=""></option>
               <option value="small"></option>
               <option value="large"></option>
               <option value="huge"></option>
             </select>
-            <button className={`ql-header toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`} onClick={() => setSelectable({ ...selectable, "ql-header-1": !selectable["ql-header-1"] })} value="1"></button>
-            <button className={`ql-header toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`} onClick={() => setSelectable({ ...selectable, "ql-header-2": !selectable["ql-header-2"] })} value="2"></button>
+            <button className={`ql-header toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-header-1": !selectable["ql-header-1"] })} value="1"></button>
+            <button className={`ql-header toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-header-2": !selectable["ql-header-2"] })} value="2"></button>
             <select className={"ql-font"}>
               <option selected>Sans Serif</option>
               <option value="inconsolata">Inconsolata</option>
@@ -349,23 +349,23 @@ function Example() {
               <option value="mirza">Mirza</option>
               <option value="arial">Arial</option>
             </select>
-            <button className={`ql-bold toolbarBtn  ${toggleBlack? "toolbarBtn-dark" : "" }`} onClick={(e) => { setSelectable({ ...selectable, "ql-bold": !selectable["ql-bold"] }); }}></button>
-            <button className={`ql-italic toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`} onClick={() => setSelectable({ ...selectable, "ql-italic": !selectable["ql-italic"] })}></button>
-            <button className={`ql-underline toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`} onClick={() => setSelectable({ ...selectable, "ql-underline": !selectable["ql-underline"] })}></button>
-            <button className={`ql-strike toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`} onClick={() => setSelectable({ ...selectable, "ql-strike": !selectable["ql-strike"] })}></button>
-            <button className={`ql-script toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`} onClick={() => setSelectable({ ...selectable, "ql-script-super": !selectable["ql-script-super"] })} value="super"></button>
-            <button className={`ql-script toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`} onClick={() => setSelectable({ ...selectable, "ql-script-sub": !selectable["ql-script-sub"] })} value="sub"></button>
+            <button className={`ql-bold toolbarBtn  ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={(e) => { setSelectable({ ...selectable, "ql-bold": !selectable["ql-bold"] }); }}></button>
+            <button className={`ql-italic toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-italic": !selectable["ql-italic"] })}></button>
+            <button className={`ql-underline toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-underline": !selectable["ql-underline"] })}></button>
+            <button className={`ql-strike toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-strike": !selectable["ql-strike"] })}></button>
+            <button className={`ql-script toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-script-super": !selectable["ql-script-super"] })} value="super"></button>
+            <button className={`ql-script toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-script-sub": !selectable["ql-script-sub"] })} value="sub"></button>
             <select className="ql-align toolbarBtn">
               <option value=""></option>
               <option value="center"></option>
               <option value="right"></option>
               <option value="justify"></option>
             </select>
-            <button className={`ql-list toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`} value="ordered"></button>
-            <button className={`ql-list toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`} value="bullet"></button>
-            <button className={`ql-indent toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`} value="-1"></button>
-            <button className={`ql-indent toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`} value="+1"></button>
-            <select className={`ql-color toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`}>
+            <button className={`ql-list toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} value="ordered"></button>
+            <button className={`ql-list toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} value="bullet"></button>
+            <button className={`ql-indent toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} value="-1"></button>
+            <button className={`ql-indent toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} value="+1"></button>
+            <select className={`ql-color toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`}>
               <option value=""></option>
               <option value="#e60000"></option>
               <option value="#ff9900"></option>
@@ -403,14 +403,14 @@ function Example() {
               <option value="#3d1466"></option>
               <option value="custom-color"></option>
             </select>
-            <select className={`ql-background toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`}></select>
+            <select className={`ql-background toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`}></select>
 
-            <button className={`ql-blockquote toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`}></button>
-            <button className={`ql-code-block toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`}></button>
-            <button className={`ql-link toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`}></button>
-            <button className={`ql-direction toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`} value="rtl"></button>
+            <button className={`ql-blockquote toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`}></button>
+            <button className={`ql-code-block toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`}></button>
+            <button className={`ql-link toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`}></button>
+            <button className={`ql-direction toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} value="rtl"></button>
 
-            <button class={`ql-clean toolbarBtn ${toggleBlack? "toolbarBtn-dark" : "" }`}></button>
+            <button class={`ql-clean toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`}></button>
 
             {/* <button className="ql-align toolbarBtn"></button>
         <button className="ql-align toolbarBtn" value="center"></button>
@@ -420,9 +420,11 @@ function Example() {
           </div>
         </div>
 
-        <div className={`editorContainer ${toggleBlack? "editorContainer-dark" : "" }`} >
+        <div className={`editorContainer ${toggleBlack ? "editorContainer-dark" : ""}`} >
           <div id="QuillEditor" className="" />
-          <button onClick={handleToggleBlack}>Dark Theme</button>
+          <button className={`LightThemeBtn ${toggleBlack? "DarkThemeBtn" : "" }`} onClick={handleToggleBlack}>
+            {!toggleBlack? <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#212529" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dadada" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>}
+          </button>
         </div>
         <div className="dummy" style={{ display: "none" }}></div>
       </div>
