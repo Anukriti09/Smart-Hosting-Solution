@@ -334,7 +334,7 @@ button:focus {
 }
 
 .toolbarContainer-dark .ql-picker:not(.ql-expanded){
-    background-color: #141515;
+    background-color: #1b1a1a;
     box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020;
 }
 
