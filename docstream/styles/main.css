@@ -234,7 +234,7 @@ button:focus {
     position: relative;
     padding: 10px 40px;
     border-radius: 20px;
-    background-color: #141515;
+    background-color: #1b1a1a;
     /* box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020; */
     cursor: pointer;
     animation-duration: 0.05s;
@@ -477,7 +477,7 @@ button:focus {
 
 .form-input-dark input {
     color: white;
-    box-shadow: inset 4px 4px 8px #101010, inset -4px -4px 8px #202020;
+    box-shadow: inset 4px 4px 8px #101010, inset -4px -4px 8px #202020 !important;
 }
 
 .form-input input:focus {
@@ -575,11 +575,14 @@ button:focus {
 
 .Modal>.button-dark {
     background-color: #1b1a1a;
-    box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020;
+    /* box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020; */
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5), -4px -4px 16px rgba(255, 255, 255, 0.05);
+
 }
 
 .Modal>button:hover {
     stroke: #4caf50;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.75) inset, -4px -4px 16px rgba(255, 255, 255, 0.1) inset;
 }
 
 .Modal>div:last-of-type {
