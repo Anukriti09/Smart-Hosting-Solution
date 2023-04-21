@@ -177,23 +177,11 @@
 }
 
 .toolbarBtn-dark {
-    position: relative;
-    border-radius: 100%;
-    background-color: #F1F5F9;
-    box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020;
-    cursor: pointer;
-    animation-duration: 0.05s;
-    outline: none;
-    border: none;
-    display: grid !important;
-    grid-template-columns: 100% !important;
-    align-items: center !important;
-    justify-items: center !important;
-    padding: 0px !important;
-    float: none !important;
-    height: 30px !important;
-    width: 30px !important;
+    /* box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020; */
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5), -4px -4px 16px rgba(255, 255, 255, 0.05);
+
 }
+
 
 .dropDown-dark {
     background-color: #1b1a1a;
@@ -224,7 +212,9 @@ button:focus {
 .toolbarBtn-dark:hover {
     animation-name: dark-shadow;
     animation-timing-function: ease;
-    box-shadow: inset 4px 4px 8px #141515, inset -4px -4px 8px #202020;
+    /* box-shadow: inset 4px 4px 8px #141515, inset -4px -4px 8px #202020; */
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.75) inset, -4px -4px 16px rgba(255, 255, 255, 0.1) inset;
+
 }
 
 .button {
@@ -245,12 +235,13 @@ button:focus {
     padding: 10px 40px;
     border-radius: 20px;
     background-color: #141515;
-    box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020;
+    /* box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020; */
     cursor: pointer;
     animation-duration: 0.05s;
     outline: none;
     border: none;
     color: #4caf50;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5), -4px -4px 16px rgba(255, 255, 255, 0.05);
 }
 
 .button:hover {
@@ -262,8 +253,9 @@ button:focus {
 .button-dark:hover {
     animation-name: darkshadow;
     animation-timing-function: ease;
-    box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020;
+    /* box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020; */
     /* box-shadow: inset 4px 4px 8px #141515, inset -4px -4px 8px #202020; */
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.75) inset, -4px -4px 16px rgba(255, 255, 255, 0.1) inset;
 }
 
 @keyframes shadow {
@@ -300,17 +292,18 @@ button:focus {
     display: none !important;
 }
 
-.selected {
+.selected:not(.toolbarBtn-dark) {
     box-shadow: inset 3px 3px 15px #1b1a1a, inset -3px -3px 15px #2b2b2b !important;
     transform: scale(1.15);
     background: linear-gradient(180deg, #1b1a1a 0%, #2b2b2b 100%) !important;
 }
 
-/* .selected-dark {
-    box-shadow: inset 3px 3px 15px #141515, inset -3px -3px 15px #202020 !important;
+.toolbarBtn-dark.selected {
+    box-shadow: inset 4px 4px 8px #c9d9e88b, inset -4px -4px 8px #ffffff;
     transform: scale(1.15);
-    background: linear-gradient(180deg, #141515 0%, #202020 100%) !important;
-} */
+    /* background: linear-gradient(180deg, #141515 0%, #202020 100%) !important; */
+    background-color: #F1F5F9 !important;
+}
 
 .ql-picker {
     color: #4caf50 !important;
@@ -330,7 +323,7 @@ button:focus {
     box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF;
 }
 
-.toolbarContainer-dark .ql-picker:not(.ql-expanded){
+.toolbarContainer-dark .ql-picker:not(.ql-expanded) {
     background-color: #1b1a1a;
     box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020;
 }
@@ -387,12 +380,12 @@ button:focus {
 }
 
 .headerBtnActive-dark {
-    box-shadow: inset 4px 4px 8px #141515, inset -4px -4px 8px #202020;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.75) inset, -4px -4px 16px rgba(255, 255, 255, 0.1) inset;
 }
 
 .headerBtnActive-dark:hover {
     animation: none;
-    box-shadow: inset 4px 4px 8px #141515, inset -4px -4px 8px #202020;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.75) inset, -4px -4px 16px rgba(255, 255, 255, 0.1) inset;
 }
 
 .main-modal {
@@ -420,7 +413,7 @@ button:focus {
     border-radius: 20px;
 }
 
-.form-container-dark{
+.form-container-dark {
     background-color: #141515;
     box-shadow: inset 4px 4px 8px #141515, inset -4px -4px 8px #202020;
 }
@@ -539,7 +532,7 @@ button:focus {
     border-radius: 20px;
 }
 
-.Modal-dark{
+.Modal-dark {
     background-color: #1b1a1a;
 }
 
@@ -580,7 +573,7 @@ button:focus {
     box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF;
 }
 
-.Modal>.button-dark{
+.Modal>.button-dark {
     background-color: #1b1a1a;
     box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020;
 }
@@ -635,19 +628,30 @@ button:focus {
     width: 70px;
     height: 70px;
     border-radius: 100%;
-    background-color: #1b1a1a;
-    box-shadow: 4px 4px 8px #C9D9E8 inset -4px -4px 8px #FFFFFF;
+    /* background-color: #1b1a1a;
+    box-shadow: 4px 4px 8px #C9D9E8 inset -4px -4px 8px #FFFFFF; */
+    background: #FFFFFF;
+    box-shadow: -7px 7px 14px rgba(201, 201, 201, 0.2), 7px -7px 14px rgba(201, 201, 201, 0.2), -7px -7px 14px rgba(255, 255, 255, 0.9), 7px 7px 18px rgba(201, 201, 201, 0.9), inset 1px 1px 2px rgba(255, 255, 255, 0.3), inset -1px -1px 2px rgba(201, 201, 201, 0.5);
     display: grid;
     grid-template-columns: 100%;
     justify-items: center;
     align-items: center;
 }
 
-.LightThemeBtn > svg{
+.LightThemeBtn:not(.DarkThemeBtn):hover {
+    box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3), -1px -1px 2px rgba(237, 237, 237, 0.5), inset -9px 9px 18px rgba(237, 237, 237, 0.2), inset 9px -9px 18px rgba(237, 237, 237, 0.2), inset -9px -9px 18px rgba(255, 255, 255, 0.9), inset 9px 9px 23px rgba(237, 237, 237, 0.9);}
+
+.LightThemeBtn>svg {
     stroke: #4caf50;
 }
 
-.DarkThemeBtn{
-    background-color: #F1F5F9;
-    box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020;
+.DarkThemeBtn {
+    /* background-color: #F1F5F9;
+    box-shadow: 8px 8px 16px #141515, -8px -8px 16px #202020; */
+    background: #191919;
+    box-shadow: -4px 4px 8px rgba(10, 10, 10, 0.2), 4px -4px 8px rgba(10, 10, 10, 0.2), -4px -4px 8px rgba(40, 40, 40, 0.9), 4px 4px 10px rgba(10, 10, 10, 0.9), inset 1px 1px 2px rgba(40, 40, 40, 0.3), inset -1px -1px 2px rgba(10, 10, 10, 0.5);
+}
+
+.DarkThemeBtn:hover {
+    box-shadow: 1px 1px 2px rgba(40, 40, 40, 0.3), -1px -1px 2px rgba(10, 10, 10, 0.5), inset -7px 7px 14px rgba(10, 10, 10, 0.2), inset 7px -7px 14px rgba(10, 10, 10, 0.2), inset -7px -7px 14px rgba(40, 40, 40, 0.9), inset 7px 7px 18px rgba(10, 10, 10, 0.9);
 }
