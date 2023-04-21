@@ -11,6 +11,7 @@
     width: 8.5in;
     min-height: 11in;
     padding: 1in;
+    border-radius: 5px;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
     background-color: white;
   }
