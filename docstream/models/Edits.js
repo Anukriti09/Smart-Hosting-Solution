@@ -37,7 +37,7 @@ const Edits = ({ updates, setOverlay, toggleBlack, setShowEdits }) => {
         await okay()
     }, []);
     return (
-        <div className={`editsContainer ${toggleBlack ? 'editsContainer-dark' : ''}`}>
+        <div id='style-2' className={`editsContainer ${toggleBlack ? 'editsContainer-dark' : ''}`}>
             <div className="editsHeader">
                 <h1>Edits</h1>
                 <button className={`button ${toggleBlack ? "button-dark" : ""}`} onClick={() => { setOverlay(false); setShowEdits(false) }}>
