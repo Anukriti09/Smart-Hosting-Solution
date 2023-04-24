@@ -356,9 +356,8 @@ button:focus {
 
 .toolbarContainer-dark .ql-picker-options {
     border-radius: 0 0 10px 10px;
-    background: #F1F5F9 !important;
-    box-shadow: inset 4px -4px 8px #c9d9e8, inset -4px -4px 8px #ffffff !important;
-    outline: none !important;
+    background-color: #1b1a1a !important;
+    box-shadow: 4px -4px 16px rgba(0, 0, 0, 0.75) inset, -4px -4px 16px rgba(255, 255, 255, 0.1) inset !important;
     border: none !important;
 }
 
@@ -369,6 +368,16 @@ button:focus {
 .ql-picker-label .ql-stroke {
     stroke: #4caf50 !important;
 }
+
+.toolbarContainer-dark .ql-picker{
+    background-color: #1b1a1a;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.75) inset, 0px 0px 16px rgba(255, 255, 255, 0.1) inset;
+}
+
+.toolbarContainer-dark .ql-picker-item:hover{
+    color: white !important;
+}
+
 
 .headerBtnActive {
     box-shadow: inset 4px 4px 8px #c9d9e88b, inset -4px -4px 8px #ffffff;
