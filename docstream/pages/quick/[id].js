@@ -293,7 +293,7 @@ function Example() {
             <h2>{documentId}</h2>
           </div>
           <div>
-            <div className={`button ${showEdits ? "headerBtnActive" : ""} ${toggleBlack ? "button-dark" : ""} ${showEdits && toggleBlack ? "headerBtnActive-dark" : ""}`} onClick={() => { showEdits ? setShowEdits(false) : fetchEdits() }}>
+            <div className={`button ${showEdits ? "headerBtnActive" : ""} ${toggleBlack ? "button-dark" : ""} ${showEdits && toggleBlack ? "headerBtnActive-dark" : ""}`} onClick={() => { if(showEdits){setShowEdits(false); setOverlay(false)}else{fetchEdits(); setOverlay(true)} }}>
               <svg style={showEdits ? { display: "none" } : { display: "block" }} width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.1127 1H1V35.9426H17.0413M22.1127 1V5.83248H26.199M22.1127 1L26.199 5.83248M26.199 5.83248V14.1375" stroke="#4CAF50" />
                 <path d="M18.4257 30.1375L28.1133 13.604L31.8995 15.9695L22.2118 32.503L18.3813 34.627L18.4257 30.1375Z" stroke="#4CAF50" />
@@ -331,7 +331,7 @@ function Example() {
           </div>
         </header>
 
-        {showEdits && <Edits updates={updatesData}></Edits>}
+        {showEdits && <Edits setShowEdits={setShowEdits} toggleBlack={toggleBlack} setOverlay={setOverlay} updates={updatesData}></Edits>}
         <div className={`toolbarContainer ${toggleBlack ? "toolbarContainer-dark" : ""}`}>
           <div id="toolbar">
             <select className={`ql-size`}>
