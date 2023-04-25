@@ -82,7 +82,7 @@ function HelloSign({setOverlay, toggleBlack}) {
           <input type="text" placeholder="Subject" onChange={(evt) => { setSub(evt.target.value) }} />
           <input type="text" placeholder="Message" onChange={(evt) => { setMess(evt.target.value) }} />
         </div>
-        <div className={`button ${toggleBlack? "button-dark" : ""}`}onClick={handleClick}>
+        <div className={`button ${toggleBlack? "button-dark" : ""}`} onClick={handleClick}>
           Send Sign Request
         </div>
       </div>

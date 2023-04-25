@@ -7,8 +7,8 @@ function ShareModal({ setOverlay, toggleBlack }) {
 
   useEffect(() => {
     setLinkText(window.location.href);
-    setClicked(false) 
-  }, []);
+    setClicked(false);
+  },[]);
 
   return (
     <>
@@ -27,8 +27,8 @@ function ShareModal({ setOverlay, toggleBlack }) {
 
       </div>
 
-      <div className="Modal" style={showModal ? { display: "grid" } : { display: "none" }}>
-        <button className="button" onClick={() => { setShowModal(false); setOverlay(false);}}>
+      <div className={`Modal ${toggleBlack? "Modal-dark" : "" }`} style={showModal ? { display: "grid" } : { display: "none" }}>
+        <button className={`button ${toggleBlack? "button-dark": "" }`} onClick={() => { setShowModal(false); setOverlay(false); setClicked(false);}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4.83582 5.00012L14.8357 14.6716" stroke-width="4" stroke-linecap="round" />
             <path d="M14.5075 4.67163L4.83569 14.6716" stroke-width="4" stroke-linecap="round" />
@@ -36,7 +36,7 @@ function ShareModal({ setOverlay, toggleBlack }) {
         </button>
         <h2>Share</h2>
         <div className="ShareLink">{LinkText}</div>
-        <div onClick={() => { navigator.clipboard.writeText(LinkText); setClicked(true)}} className={`${clicked? "button clicked" : "button"}`}>
+        <div onClick={() => { navigator.clipboard.writeText(LinkText); setClicked(true)}} className={`${clicked? "button clicked" : "button"} ${toggleBlack? "button-dark" : ""}`}>
           {clicked ? "Link Copied!" : "Copy Link"}
         </div>
       </div>
