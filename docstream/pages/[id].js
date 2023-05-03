@@ -313,7 +313,11 @@ function Example() {
     "ql-underline": false,
     "ql-strike": false,
     "ql-script-super": false,
-    "ql-script-sub": false
+    "ql-script-sub": false,
+    "ql-code": false,
+    "ql-html": false,
+    "ql-color": false,
+    "ql-highlight": false    
   })
 
   const [toggleBlack, setToggleBlack] = useState(false);
@@ -411,8 +415,8 @@ function Example() {
               <button className={`ql-strike toolbarBtn ${selectable["ql-strike"] ? "selected" : ""} ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-strike": !selectable["ql-strike"] })}></button>
               <button className={`ql-script toolbarBtn ${selectable["ql-script-super"] ? "selected" : ""} ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-script-super": !selectable["ql-script-super"] })} value="super"></button>
               <button className={`ql-script toolbarBtn ${selectable["ql-script-sub"] ? "selected" : ""} ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-script-sub": !selectable["ql-script-sub"] })} value="sub"></button>
-              <select className="ql-align toolbarBtn">
-                <option value=""></option>
+              <select className="ql-align">
+                <option selected=""></option>
                 <option value="center"></option>
                 <option value="right"></option>
                 <option value="justify"></option>
@@ -461,18 +465,12 @@ function Example() {
               </select>
               <select className={`ql-background toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`}></select>
 
-              <button className={`ql-blockquote toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`}></button>
-              <button className={`ql-code-block toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`}></button>
+              <button className={`ql-blockquote toolbarBtn ${selectable["ql-code"] ? "selected" : ""} ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-code": !selectable["ql-code"] })}></button>
+              <button className={`ql-code-block toolbarBtn ${selectable["ql-html"] ? "selected" : ""} ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-html": !selectable["ql-html"] })}></button>
               <button className={`ql-link toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`}></button>
               <button className={`ql-direction toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} value="rtl"></button>
 
               <button class={`ql-clean toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`}></button>
-
-              {/* <button className="ql-align toolbarBtn"></button>
-        <button className="ql-align toolbarBtn" value="center"></button>
-        <button className="ql-align toolbarBtn" value="justify"></button>
-        <button className="ql-align toolbarBtn" value="right"></button> */}
-
             </div>
           </div>
 
