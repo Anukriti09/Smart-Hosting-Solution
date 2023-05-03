@@ -131,6 +131,8 @@ function Example() {
 
     const Quill = (await import("quill")).default;
     let icons = Quill.import("ui/icons");
+    
+    console.log(icons['align'])
 
     icons["bold"] = `
     <svg width="9" height="11" viewBox="0 0 9 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -293,7 +295,7 @@ function Example() {
             <h2>{documentId}</h2>
           </div>
           <div>
-            <div className={`button ${showEdits ? "headerBtnActive" : ""} ${toggleBlack ? "button-dark" : ""} ${showEdits && toggleBlack ? "headerBtnActive-dark" : ""}`} onClick={() => { if(showEdits){setShowEdits(false); setOverlay(false)}else{fetchEdits(); setOverlay(true)} }}>
+            <div className={`button ${showEdits ? "headerBtnActive" : ""} ${toggleBlack ? "button-dark" : ""} ${showEdits && toggleBlack ? "headerBtnActive-dark" : ""}`} onClick={() => { if (showEdits) { setShowEdits(false); setOverlay(false) } else { fetchEdits(); setOverlay(true) } }}>
               <svg style={showEdits ? { display: "none" } : { display: "block" }} width="35" height="37" viewBox="0 0 35 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.1127 1H1V35.9426H17.0413M22.1127 1V5.83248H26.199M22.1127 1L26.199 5.83248M26.199 5.83248V14.1375" stroke="#4CAF50" />
                 <path d="M18.4257 30.1375L28.1133 13.604L31.8995 15.9695L22.2118 32.503L18.3813 34.627L18.4257 30.1375Z" stroke="#4CAF50" />
@@ -355,12 +357,24 @@ function Example() {
             <button className={`ql-strike toolbarBtn ${selectable["ql-strike"] ? "selected" : ""} ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-strike": !selectable["ql-strike"] })}></button>
             <button className={`ql-script toolbarBtn ${selectable["ql-script-super"] ? "selected" : ""} ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-script-super": !selectable["ql-script-super"] })} value="super"></button>
             <button className={`ql-script toolbarBtn ${selectable["ql-script-sub"] ? "selected" : ""} ${toggleBlack ? "toolbarBtn-dark" : ""}`} onClick={() => setSelectable({ ...selectable, "ql-script-sub": !selectable["ql-script-sub"] })} value="sub"></button>
-            <select className="ql-align toolbarBtn">
-              <option value=""></option>
+            {/* <select className="ql-align toolbarBtn">
+              <option value="left"></option>
+              <option value="center">Center</option>
+              <option value="right">Right</option>
+              <option value="justify"></option>
+            </select> */}
+            <select className="ql-align">
+              <option selected=""></option>
               <option value="center"></option>
               <option value="right"></option>
               <option value="justify"></option>
             </select>
+            {/* <span class="ql-formats">
+              <button class="ql-align" value=""></button>
+              <button class="ql-align" value="center"></button>
+              <button class="ql-align" value="right"></button>
+              <button class="ql-align" value="justify"></button>
+            </span> */}
             <button className={`ql-list toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} value="ordered"></button>
             <button className={`ql-list toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} value="bullet"></button>
             <button className={`ql-indent toolbarBtn ${toggleBlack ? "toolbarBtn-dark" : ""}`} value="-1"></button>
@@ -422,8 +436,8 @@ function Example() {
 
         <div className={`editorContainer ${toggleBlack ? "editorContainer-dark" : ""}`} >
           <div id="QuillEditor" className="" />
-          <button className={`LightThemeBtn ${toggleBlack? "DarkThemeBtn" : "" }`} onClick={handleToggleBlack}>
-            {!toggleBlack? <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#212529" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dadada" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>}
+          <button className={`LightThemeBtn ${toggleBlack ? "DarkThemeBtn" : ""}`} onClick={handleToggleBlack}>
+            {!toggleBlack ? <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#212529" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dadada" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>}
           </button>
         </div>
         <div className="dummy" style={{ display: "none" }}></div>

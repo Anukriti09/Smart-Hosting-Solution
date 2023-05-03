@@ -363,11 +363,12 @@ button:focus {
     }
 }
 
-.ql-color,
+/* .ql-color,
 .ql-background,
 .ql-align {
     display: none !important;
-}
+} */
+
 
 .selected:not(.toolbarBtn-dark) {
     box-shadow: inset 3px 3px 15px #1b1a1a, inset -3px -3px 15px #2b2b2b !important;
@@ -442,6 +443,8 @@ button:focus {
     color: black !important;
 }
 
+.ql-picker-
+
 .ql-picker-label .ql-stroke {
     stroke: #4caf50 !important;
 }
@@ -453,6 +456,32 @@ button:focus {
 
 .toolbarContainer-dark .ql-picker-item:hover{
     color: white !important;
+}
+
+
+
+.ql-align svg{
+    height: 14px !important;
+    width: 14px !important;
+}
+
+.ql-align .ql-picker-label{
+    grid-template-columns: auto;
+    justify-items: center;
+}
+
+.ql-align{
+    height: 30px !important;
+    width: 30px !important;
+    padding: 0;
+}
+
+.ql-align:hover{
+    box-shadow: inset 4px 4px 8px #c9d9e8;
+}
+
+.toolbarContainer-dark .ql-align:hover{
+    box-shadow: 4px -4px 16px rgba(0, 0, 0, 0.75) inset, -4px -4px 16px rgba(255, 255, 255, 0.1) inset !important;
 }
 
 
