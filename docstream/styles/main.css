@@ -668,6 +668,11 @@ button:focus {
 
 .Modal>button:hover {
     stroke: #4caf50;
+    box-shadow: inset 4px 4px 8px #c9d9e88b, inset -4px -4px 8px #ffffff;
+}
+
+.Modal>.button-dark:hover {
+    stroke: #4caf50;
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.75) inset, -4px -4px 16px rgba(255, 255, 255, 0.1) inset;
 }
 
@@ -755,4 +760,35 @@ button:focus {
 
 .DarkThemeBtn:hover {
     box-shadow: 1px 1px 2px rgba(40, 40, 40, 0.3), -1px -1px 2px rgba(10, 10, 10, 0.5), inset -7px 7px 14px rgba(10, 10, 10, 0.2), inset 7px -7px 14px rgba(10, 10, 10, 0.2), inset -7px -7px 14px rgba(40, 40, 40, 0.9), inset 7px 7px 18px rgba(10, 10, 10, 0.9);
+}
+
+.card{
+    /* "block p-6 m-3* max-w-sm rounded-lg* border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" */
+    display: block;
+    padding: 25px;
+    margin: 35px 5px;
+    background-color: #F1F5F9;
+    box-shadow: 8px 8px 16px #C9D9E8, -8px -8px 16px #FFFFFF;
+    border-radius: 10px;
+    max-width: 23vw;
+
+}
+
+.card-dark{
+    background-color: #1b1a1a;
+    box-shadow: -4px 4px 8px rgba(10, 10, 10, 0.2), 4px -4px 8px rgba(10, 10, 10, 0.2), -4px -4px 8px rgba(40, 40, 40, 0.9), 4px 4px 10px rgba(10, 10, 10, 0.9), inset 1px 1px 2px rgba(40, 40, 40, 0.3), inset -1px -1px 2px rgba(10, 10, 10, 0.5);
+}
+
+h5{
+    /* class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white" */
+    /* class="mb-2 text-base tracking-tight text-gray-900 dark:text-white" */
+
+
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.cardText{
+    padding: 10px;
 }

@@ -24,7 +24,7 @@ function DownloadHelloSign({ setOverlay, toggleBlack }) {
 
     let itemList = [];
     items.forEach((item, index) => {
-        itemList.push(<DownloadCard Name={item.title} Title={item.subject} Url={item.files_url} />)
+        itemList.push(<DownloadCard Name={item.title} Title={item.subject} Url={item.files_url} toggleBlack={toggleBlack} />)
     })
 
     return (
@@ -48,7 +48,7 @@ function DownloadHelloSign({ setOverlay, toggleBlack }) {
                 </svg>
             </div>
 
-            <div className={`Modal HelloSignModal ${toggleBlack? "HelloSignModal-dark" : "" }`} style={showModal ? { display: "grid" } : { display: "none" }}>
+            <div id="style-2" className={`Modal HelloSignModal ${toggleBlack? "HelloSignModal-dark" : "" }`} style={showModal ? { display: "grid" } : { display: "none" }}>
                 {/* Close Button */}
                 <button className={`button ${toggleBlack? "button-dark" : ""}`} onClick={() => { setShowModal(false); setOverlay(false)}}>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
