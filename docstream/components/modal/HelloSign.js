@@ -15,11 +15,7 @@ function HelloSign({setOverlay, toggleBlack}) {
 
   const handleClick = (e) => {
 
-    html2canvas(document.getElementById('QuillEditor'), {
-      allowTaint: true,
-      foreignObjectRendering: true,
-    }).then(function (canvas) {
-
+    html2canvas(document.querySelector('.ql-editor'), {}).then(function (canvas) {
       var imgsrc = canvas.toDataURL();
       var jsonData = {};
 
